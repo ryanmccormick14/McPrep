@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAT / ACT Boot Camp — McPrep Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #0c1222;
+      background: #ffffff;
+      padding: 1.5rem;
+    }
+
+    .bootcamp-card {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e4e6eb;
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .bootcamp-card {
+        padding: 1.75rem 1.75rem 1.5rem;
+      }
+    }
+
+    .bootcamp-header h1 {
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .bootcamp-header .subtitle {
+      margin: 0 0 1rem;
+      font-size: 0.9375rem;
+      color: #3d4a63;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .badge-blue {
+      background: #e8f0fe;
+      color: #1a56b5;
+      border-color: #c5daf8;
+    }
+
+    .badge-green {
+      background: #e6f4ea;
+      color: #137333;
+      border-color: #b8dfc4;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid #e4e6eb;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #3d4a63;
+      border-bottom: 1px solid #c8cdd6;
+    }
+
+    tbody tr {
+      transition: background 0.12s ease;
+    }
+
+    tbody tr:hover {
+      background: #f4f5f7;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .test-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      margin-right: 0.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .test-pill.sat {
+      background: #ede9fe;
+      color: #5b21b6;
+      border: 1px solid #ddd6fe;
+    }
+
+    .test-pill.act {
+      background: #ffedd5;
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+    }
+
+    .test-date {
+      display: block;
+      font-size: 0.8125rem;
+      color: #3d4a63;
+      margin-top: 0.25rem;
+    }
+
+    .btn-enroll {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid #0c1222;
+      background: #ffffff;
+      color: #0c1222;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.12s ease, color 0.12s ease;
+    }
+
+    .btn-enroll:hover {
+      background: #0c1222;
+      color: #ffffff;
+    }
+
+    .col-format {
+      display: none;
+    }
+
+    @media (min-width: 600px) {
+      .col-format {
+        display: table-cell;
+      }
+    }
+
+    .footer-notes {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e4e6eb;
+      font-size: 0.8125rem;
+      color: #3d4a63;
+    }
+
+    .footer-notes p {
+      margin: 0 0 0.5rem;
+    }
+
+    .footer-notes p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="bootcamp-card">
+    <header class="bootcamp-header">
+      <h1>SAT / ACT Boot Camp</h1>
+      <p class="subtitle">Live online prep — 3 sessions · 2 hours each · 6 hrs total instruction</p>
+      <div class="badges">
+        <span class="badge badge-blue">Live on Zoom</span>
+        <span class="badge badge-green">Small group</span>
+      </div>
+    </header>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Test &amp; Date</th>
+            <th scope="col">Schedule</th>
+            <th scope="col" class="col-format">Format</th>
+            <th scope="col">Price</th>
+            <th scope="col">Enroll</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="test-pill sat">SAT</span>
+              <span class="test-date">Test day: May 2, 2025</span>
+            </td>
+            <td>Apr 13 – May 1 · 3 sessions · Mondays · 7:00–9:00 PM PT</td>
+            <td class="col-format">Live Zoom · 6 hrs total</td>
+            <td>$180 ($30/hr · 6 hrs)</td>
+            <td><a class="btn-enroll" href="#">Sign up ↗</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="test-pill sat">SAT</span>
+              <span class="test-date">Test day: June 6, 2025</span>
+            </td>
+            <td>May 19 – Jun 2 · 3 sessions · Mondays · 7:00–9:00 PM PT</td>
+            <td class="col-format">Live Zoom · 6 hrs total</td>
+            <td>$180 ($30/hr · 6 hrs)</td>
+            <td><a class="btn-enroll" href="#">Sign up ↗</a></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="test-pill act">ACT</span>
+              <span class="test-date">Test day: June 13, 2025</span>
+            </td>
+            <td>May 26 – Jun 9 · 3 sessions · Tuesdays · 7:00–9:00 PM PT</td>
+            <td class="col-format">Live Zoom · 6 hrs total</td>
+            <td>$180 ($30/hr · 6 hrs)</td>
+            <td><a class="btn-enroll" href="#">Sign up ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer-notes">
+      <p>All sessions recorded for registered students</p>
+      <p>Register for the official test separately at collegeboard.org (SAT) or act.org (ACT)</p>
+    </div>
+  </div>
+</body>
+</html>
