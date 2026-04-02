@@ -101,6 +101,7 @@
       background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
+      overflow: visible;
     }
 
     .nav {
@@ -109,6 +110,8 @@
       justify-content: space-between;
       padding: 0.85rem 0;
       gap: 1rem;
+      flex-wrap: wrap;
+      overflow: visible;
     }
 
     .logo-lockup {
@@ -117,6 +120,10 @@
       gap: 0.5rem;
       text-decoration: none;
       color: var(--ink);
+      flex-shrink: 0;
+      min-width: min-content;
+      max-width: none;
+      overflow: visible;
     }
 
     .logo-lockup:hover {
@@ -139,6 +146,10 @@
       display: inline-flex;
       align-items: baseline;
       overflow: visible;
+      flex-shrink: 0;
+      width: max-content;
+      max-width: none;
+      padding-inline-end: 0.15em;
     }
 
     .logo-lockup .logo-text .brand-mc {
@@ -160,7 +171,9 @@
       color: transparent;
       display: inline-block;
       line-height: 1.55;
-      padding: 0.08em 0 0.12em;
+      padding: 0.08em 0.12em 0.12em 0;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .nav-links {
@@ -233,19 +246,25 @@
       padding: clamp(2.25rem, 6vw, 4rem) 0 clamp(2.75rem, 7vw, 4.75rem);
       border-bottom: 1px solid var(--line);
       background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 255, 255, 0.65) 100%);
+      overflow: visible;
     }
 
     .hero-grid {
       display: grid;
       gap: 2.25rem;
       align-items: center;
+      overflow: visible;
     }
 
     @media (min-width: 900px) {
       .hero-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(min-content, 1.15fr) minmax(0, 1fr);
         gap: 2.75rem;
       }
+    }
+
+    .hero-grid > div:first-child {
+      overflow: visible;
     }
 
     .hero-brand {
@@ -255,6 +274,10 @@
       margin-bottom: 1.1rem;
       overflow: visible;
       padding-bottom: 0.15rem;
+      width: max-content;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-right: 0.35rem;
     }
 
     .hero-brand .logo-mark {
@@ -272,6 +295,10 @@
       letter-spacing: -0.04em;
       margin: 0;
       overflow: visible;
+      width: max-content;
+      max-width: 100%;
+      padding-inline-end: 0.15em;
+      box-sizing: border-box;
     }
 
     .wordmark .brand-mc {
@@ -293,7 +320,7 @@
       color: transparent;
       display: inline-block;
       line-height: 1.55;
-      padding: 0.06em 0 0.2em;
+      padding: 0.06em 0.12em 0.2em 0;
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
     }
