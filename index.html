@@ -142,9 +142,11 @@
       font-weight: 800;
       font-size: 1.2rem;
       letter-spacing: -0.04em;
-      line-height: 1.25;
+      line-height: 1.15;
       display: inline-flex;
       align-items: baseline;
+      flex-wrap: nowrap;
+      white-space: nowrap;
       overflow: visible;
       flex-shrink: 0;
       width: max-content;
@@ -155,13 +157,6 @@
     .logo-lockup .logo-text .brand-mc {
       font-weight: 700;
       color: var(--ink);
-    }
-
-    .brand-prep-wrap {
-      display: inline-block;
-      line-height: 1.55;
-      padding-bottom: 0.2em;
-      vertical-align: bottom;
     }
 
     .logo-lockup .logo-text .brand-prep {
@@ -269,7 +264,7 @@
 
     .hero-brand {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       gap: 0.85rem;
       margin-bottom: 1.1rem;
       overflow: visible;
@@ -291,7 +286,6 @@
       font-family: Outfit, "DM Sans", sans-serif;
       font-size: clamp(2.75rem, 8vw, 4.25rem);
       font-weight: 800;
-      line-height: 1.5;
       letter-spacing: -0.04em;
       margin: 0;
       overflow: visible;
@@ -299,17 +293,19 @@
       max-width: 100%;
       padding-inline-end: 0.15em;
       box-sizing: border-box;
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: baseline;
+      white-space: nowrap;
+      line-height: 1.08;
     }
 
     .wordmark .brand-mc {
       font-weight: 700;
       color: var(--ink);
       text-shadow: 0 2px 24px rgba(99, 102, 241, 0.2);
-    }
-
-    .wordmark .brand-prep-wrap {
-      line-height: 1.55;
-      padding-bottom: 0.25em;
+      line-height: inherit;
     }
 
     .wordmark .brand-prep {
@@ -318,9 +314,8 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      display: inline-block;
-      line-height: 1.55;
-      padding: 0.06em 0.12em 0.2em 0;
+      line-height: inherit;
+      padding: 0 0.1em 0.06em 0;
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
     }
@@ -1011,7 +1006,7 @@
           <path d="M19 34 Q24 38 29 34 Q26 45 24 47 Q22 45 19 34" fill="#fff" opacity="0.5" />
           <path d="M21 35 Q24 40 27 35 Q25 42 24 43.5 Q23 42 21 35" fill="#fef08a" opacity="0.9" />
         </svg>
-        <span class="logo-text"><span class="brand-mc">Mc</span><span class="brand-prep-wrap"><span class="brand-prep">Prep</span></span></span>
+        <span class="logo-text"><span class="brand-mc">Mc</span><span class="brand-prep">Prep</span></span>
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links">
@@ -1052,7 +1047,7 @@
               <path d="M19 34 Q24 38 29 34 Q26 45 24 47 Q22 45 19 34" fill="#fff" opacity="0.5" />
               <path d="M21 35 Q24 40 27 35 Q25 42 24 43.5 Q23 42 21 35" fill="#fef08a" opacity="0.9" />
             </svg>
-            <p class="wordmark"><span class="brand-mc">Mc</span><span class="brand-prep-wrap"><span class="brand-prep">Prep</span></span></p>
+            <p class="wordmark"><span class="brand-mc">Mc</span><span class="brand-prep">Prep</span></p>
           </div>
           <h1>Boost your SAT or ACT score in just 3 sessions</h1>
           <p class="hero-lead">
