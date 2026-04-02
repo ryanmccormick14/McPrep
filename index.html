@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>McPrep Academy — Gamified SAT/ACT Prep | Carlsbad &amp; San Diego</title>
-  <meta name="description" content="Gamified SAT and ACT preparation in North County San Diego. Live boot camps, small groups, and coaching from a local high school math teacher. SAT prep Carlsbad, ACT tutoring San Diego." />
-  <meta name="keywords" content="SAT prep Carlsbad, SAT tutoring Carlsbad, SAT prep San Diego, ACT prep Carlsbad, SAT classes North County San Diego, ACT tutoring San Diego, McPrep Academy" />
+  <title>McPrep — Gamified SAT/ACT Prep | Carlsbad &amp; San Diego</title>
+  <meta name="description" content="Gamified SAT and ACT preparation in North County San Diego. Live boot camps, small groups, and coaching from a local high school SAT/ACT teacher. SAT prep Carlsbad, ACT tutoring San Diego." />
+  <meta name="keywords" content="SAT prep Carlsbad, SAT tutoring Carlsbad, SAT prep San Diego, ACT prep Carlsbad, SAT classes North County San Diego, ACT tutoring San Diego, McPrep" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #0c1222;
-      --ink-muted: #4a5568;
-      --paper: #f8f9fb;
+      --ink: #0b0f1a;
+      --ink-muted: #5c6578;
+      --paper: #f0f2f7;
       --surface: #ffffff;
-      --line: #e2e6ef;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --accent-soft: #eff6ff;
-      --win: #059669;
-      --win-soft: #ecfdf5;
-      --hud: #6366f1;
-      --hud-soft: #eef2ff;
+      --line: #d8dee9;
+      --accent: #4f46e5;
+      --accent-bright: #6366f1;
+      --accent-hover: #4338ca;
+      --accent-soft: #eef2ff;
+      --cyan: #06b6d4;
+      --cyan-soft: #ecfeff;
+      --win: #10b981;
+      --win-soft: #d1fae5;
+      --xp-gold: #f59e0b;
+      --coral: #f97316;
+      --hud: #8b5cf6;
+      --hud-soft: #f5f3ff;
+      --leaderboard-bg: #0f1219;
+      --leaderboard-panel: #181c28;
+      --glow: rgba(99, 102, 241, 0.45);
     }
 
     *,
@@ -35,13 +43,29 @@
       scroll-behavior: smooth;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     body {
       margin: 0;
       font-family: "DM Sans", system-ui, sans-serif;
       font-size: 1.0625rem;
       line-height: 1.6;
       color: var(--ink);
-      background: var(--paper);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.08), transparent 50%),
+        radial-gradient(900px 500px at 100% 0%, rgba(6, 182, 212, 0.07), transparent 45%),
+        var(--paper);
     }
 
     h1, h2, h3 {
@@ -60,6 +84,12 @@
       text-decoration: underline;
     }
 
+    a:focus-visible,
+    .btn:focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 2px;
+    }
+
     .wrap {
       width: min(1120px, 100% - 2.5rem);
       margin-inline: auto;
@@ -69,8 +99,8 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(248, 249, 251, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
 
@@ -78,30 +108,57 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 0;
+      padding: 0.85rem 0;
       gap: 1rem;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.125rem;
-      color: var(--ink);
+    .logo-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       text-decoration: none;
-      letter-spacing: -0.02em;
+      color: var(--ink);
     }
 
-    .logo:hover {
+    .logo-lockup:hover {
       text-decoration: none;
-      color: var(--accent);
+      color: var(--ink);
+    }
+
+    .logo-lockup .logo-mark {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .logo-lockup .logo-text {
+      font-family: Outfit, "DM Sans", sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .logo-lockup .logo-text .mc {
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .logo-lockup .logo-text .prep {
+      background: linear-gradient(120deg, var(--accent-bright), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .tagline-inline {
       display: none;
-      font-size: 0.75rem;
-      font-weight: 500;
+      font-size: 0.72rem;
+      font-weight: 600;
       color: var(--ink-muted);
       max-width: 200px;
       line-height: 1.3;
+      letter-spacing: 0.02em;
     }
 
     @media (min-width: 1024px) {
@@ -115,7 +172,7 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 0.35rem 1.25rem;
+      gap: 0.35rem 1.15rem;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -123,13 +180,13 @@
 
     .nav-links a {
       color: var(--ink-muted);
-      font-weight: 500;
-      font-size: 0.875rem;
+      font-weight: 600;
+      font-size: 0.82rem;
       text-decoration: none;
     }
 
     .nav-links a:hover {
-      color: var(--ink);
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -137,166 +194,378 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.65rem 1.25rem;
+      padding: 0.7rem 1.35rem;
       font-family: inherit;
-      font-weight: 600;
-      font-size: 0.9375rem;
-      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent-bright) 0%, #7c3aed 100%);
       color: #fff;
+      box-shadow: 0 4px 14px var(--glow);
     }
 
     .btn-primary:hover {
-      background: var(--accent-hover);
+      background: linear-gradient(135deg, var(--accent-hover) 0%, #6d28d9 100%);
       text-decoration: none;
       color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px var(--glow);
     }
 
     .btn-ghost {
       background: var(--surface);
       color: var(--ink);
-      border: 1px solid var(--line);
+      border: 2px solid var(--line);
+      font-weight: 700;
     }
 
     .btn-ghost:hover {
       text-decoration: none;
-      border-color: var(--ink-muted);
-      background: var(--paper);
+      border-color: var(--accent-bright);
+      background: var(--accent-soft);
+      color: var(--accent-hover);
     }
 
     .hero {
-      padding: clamp(2.5rem, 7vw, 4.5rem) 0 clamp(3rem, 8vw, 5rem);
+      padding: clamp(2.25rem, 6vw, 4rem) 0 clamp(2.75rem, 7vw, 4.75rem);
       border-bottom: 1px solid var(--line);
-      background: var(--surface);
+      background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 255, 255, 0.65) 100%);
     }
 
     .hero-grid {
       display: grid;
-      gap: 2.5rem;
+      gap: 2.25rem;
       align-items: center;
     }
 
     @media (min-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        gap: 2.75rem;
       }
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-brand .logo-mark {
+      width: clamp(52px, 10vw, 64px);
+      height: clamp(52px, 10vw, 64px);
+      flex-shrink: 0;
+      filter: drop-shadow(0 6px 16px rgba(99, 102, 241, 0.35));
+    }
+
+    .wordmark {
+      font-family: Outfit, "DM Sans", sans-serif;
+      font-size: clamp(2.75rem, 8vw, 4.25rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .wordmark .mc {
+      font-weight: 600;
+      color: var(--ink);
+      text-shadow: 0 2px 24px rgba(99, 102, 241, 0.2);
+    }
+
+    .wordmark .prep {
+      font-weight: 800;
+      background: linear-gradient(118deg, var(--accent-bright) 0%, var(--cyan) 45%, var(--hud) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--hud);
-      margin-bottom: 0.75rem;
+      color: var(--coral);
+      margin-bottom: 0.65rem;
     }
 
     .eyebrow::before {
       content: "";
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 2px;
-      background: var(--hud);
-      opacity: 0.85;
+      background: var(--xp-gold);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-size: clamp(1.85rem, 4vw, 2.5rem);
       margin: 0 0 1rem;
-      max-width: 18ch;
+      max-width: 22ch;
+      color: var(--ink);
     }
 
     .hero-lead {
-      font-size: 1.0625rem;
+      font-size: 1.05rem;
       color: var(--ink-muted);
-      max-width: 42ch;
-      margin: 0 0 1.75rem;
+      max-width: 44ch;
+      margin: 0 0 1.6rem;
     }
 
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-bottom: 2rem;
     }
 
-    .trust {
-      display: grid;
-      gap: 1rem 1.5rem;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      font-size: 0.8125rem;
-      color: var(--ink-muted);
-      border-top: 1px solid var(--line);
-      padding-top: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .trust {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .trust {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .trust li {
-      padding-left: 0.75rem;
-      border-left: 2px solid var(--hud);
-    }
-
-    .trust strong {
-      display: block;
-      color: var(--ink);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      margin-bottom: 0.15rem;
-    }
-
-    .hero-visual {
+    /* Leaderboard visual */
+    .leaderboard-visual {
       position: relative;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      aspect-ratio: 4 / 3;
-      background: var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--leaderboard-bg);
+      box-shadow:
+        0 24px 48px -12px rgba(15, 18, 25, 0.55),
+        0 0 0 1px rgba(99, 102, 241, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      font-family: "DM Sans", system-ui, sans-serif;
     }
 
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .lb-chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      background: linear-gradient(180deg, #1a1f2e 0%, var(--leaderboard-panel) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .hero-visual .hud-corner {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .lb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+
+    .lb-dot:nth-child(2) {
+      background: var(--xp-gold);
+    }
+
+    .lb-dot:nth-child(3) {
+      background: var(--win);
+    }
+
+    .lb-title {
+      margin-left: auto;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: rgba(248, 250, 252, 0.55);
+    }
+
+    .lb-content {
+      padding: 1rem 1.1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .lb-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.12));
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fde68a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .lb-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.65rem 0.85rem;
+      align-items: center;
+      padding: 0.65rem 0.7rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .lb-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
       color: #fff;
-      background: rgba(12, 18, 34, 0.75);
-      padding: 0.35rem 0.55rem;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .lb-icon.math {
+      background: linear-gradient(145deg, #6366f1, #4f46e5);
+    }
+
+    .lb-icon.reading {
+      background: linear-gradient(145deg, #06b6d4, #0891b2);
+    }
+
+    .lb-icon.science {
+      background: linear-gradient(145deg, #10b981, #059669);
+    }
+
+    .lb-name {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.35rem;
+    }
+
+    .lb-sublabel {
+      font-size: 0.68rem;
+      color: rgba(148, 163, 184, 0.95);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .lb-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .lb-fill {
+      height: 100%;
+      border-radius: inherit;
+      width: 0;
+      animation: bar-fill 2.2s ease-out forwards;
+    }
+
+    .lb-fill.math {
+      background: linear-gradient(90deg, #818cf8, #a5b4fc);
+      animation-delay: 0.2s;
+    }
+
+    .lb-fill.reading {
+      background: linear-gradient(90deg, #22d3ee, #67e8f9);
+      animation-delay: 0.5s;
+    }
+
+    .lb-fill.science {
+      background: linear-gradient(90deg, #34d399, #6ee7b7);
+      animation-delay: 0.8s;
+    }
+
+    .lb-row:nth-child(3) .lb-fill {
+      animation-name: bar-fill-reading;
+    }
+
+    .lb-row:nth-child(4) .lb-fill {
+      animation-name: bar-fill-science;
+    }
+
+    @keyframes bar-fill {
+      to { width: 82%; }
+    }
+
+    @keyframes bar-fill-reading {
+      to { width: 74%; }
+    }
+
+    @keyframes bar-fill-science {
+      to { width: 68%; }
+    }
+
+    .lb-points {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lb-num {
+      display: inline-block;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      animation: xp-glow 2.5s ease-in-out infinite;
+    }
+
+    .lb-points small {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--xp-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @keyframes xp-glow {
+      0%, 100% { text-shadow: 0 0 0 transparent; }
+      50% { text-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+    }
+
+    .lb-delta {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #4ade80;
+      margin-top: 0.15rem;
+    }
+
+    .lb-float {
+      position: absolute;
+      font-weight: 800;
+      font-size: 0.85rem;
+      pointer-events: none;
+    }
+
+    .lb-float.one {
+      top: 42%;
+      right: 8%;
+      color: #4ade80;
+      animation: float-up 2.8s ease-out infinite;
+    }
+
+    .lb-float.two {
+      top: 62%;
+      right: 12%;
+      color: #22d3ee;
+      animation: float-up 3.2s ease-out infinite 0.4s;
+    }
+
+    .lb-float.three {
+      top: 78%;
+      right: 6%;
+      color: #a78bfa;
+      animation: float-up 3s ease-out infinite 0.9s;
+    }
+
+    @keyframes float-up {
+      0% { opacity: 0; transform: translateY(8px) scale(0.9); }
+      15% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-28px) scale(1); }
     }
 
     section {
@@ -306,6 +575,7 @@
     section.alt {
       background: var(--surface);
       border-block: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
     }
 
     .section-head {
@@ -355,61 +625,82 @@
       max-width: 380px;
       margin-inline: auto;
       aspect-ratio: 4 / 5;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: linear-gradient(145deg, var(--hud-soft) 0%, var(--accent-soft) 100%);
+      border-radius: 14px;
+      border: 2px solid var(--line);
+      background: linear-gradient(160deg, var(--hud-soft) 0%, var(--accent-soft) 50%, var(--cyan-soft) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 3rem;
-      font-weight: 700;
+      font-weight: 800;
+      font-family: Outfit, sans-serif;
       color: var(--hud);
       letter-spacing: -0.05em;
+      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.2);
     }
 
-    .icon-blocks {
+    .credential-grid {
       display: grid;
       gap: 1rem;
       margin-top: 2rem;
     }
 
-    @media (min-width: 600px) {
-      .icon-blocks {
-        grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 640px) {
+      .credential-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .icon-block {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 1.1rem 1rem;
-      background: var(--surface);
+    @media (min-width: 900px) {
+      .credential-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
-    .icon-block .icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--hud-soft);
-      color: var(--hud);
+    .credential-card {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-      font-weight: 700;
+      gap: 0.75rem;
+      align-items: stretch;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 1.15rem 1rem;
+      background: linear-gradient(180deg, var(--surface) 0%, var(--paper) 100%);
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
 
-    .icon-block h3 {
-      font-size: 0.9375rem;
-      margin: 0 0 0.25rem;
-      font-weight: 600;
+    .credential-card:hover {
+      border-color: var(--accent-bright);
+      transform: translateY(-2px);
     }
 
-    .icon-block p {
-      margin: 0;
-      font-size: 0.8125rem;
+    .credential-card .cred-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .credential-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .credential-card .cred-sub {
+      font-size: 0.8rem;
       color: var(--ink-muted);
+      display: block;
+    }
+
+    .credential-card .cred-accent {
+      width: 4px;
+      flex-shrink: 0;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent-bright), var(--cyan));
+      align-self: stretch;
+      min-height: 3rem;
     }
 
     .cards {
@@ -426,7 +717,7 @@
     .card {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 14px;
       padding: 1.5rem 1.25rem;
     }
 
@@ -437,7 +728,7 @@
     .card h3 {
       font-size: 1.05rem;
       margin: 0 0 0.5rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .card p {
@@ -447,11 +738,11 @@
     }
 
     .card-num {
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.72rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--hud);
       margin-bottom: 0.5rem;
     }
 
@@ -464,7 +755,7 @@
 
     .testimonial .by {
       font-size: 0.875rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
       margin: 0;
     }
@@ -476,9 +767,9 @@
     }
 
     .embed-frame {
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 2px solid var(--line);
       background: #fff;
       min-height: 520px;
     }
@@ -511,7 +802,7 @@
 
     .faq-item h3 {
       font-size: 1.05rem;
-      font-weight: 600;
+      font-weight: 700;
       margin: 0 0 0.5rem;
     }
 
@@ -533,23 +824,23 @@
     }
 
     .contact-card {
-      border: 1px solid var(--line);
-      border-radius: 10px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
       padding: 1.25rem 1.35rem;
       background: var(--surface);
     }
 
     .contact-card h3 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       color: var(--ink-muted);
       margin: 0 0 0.35rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .contact-card a {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.05rem;
     }
 
@@ -561,12 +852,13 @@
     .cta-band {
       text-align: center;
       padding: clamp(2.5rem, 6vw, 3.75rem) 1.5rem;
-      background: var(--ink);
+      background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
       color: #e8eaef;
-      border-radius: 12px;
+      border-radius: 16px;
       margin: 0 auto;
       max-width: min(880px, 100%);
-      border: 1px solid #1e293b;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      box-shadow: 0 20px 28px -12px rgba(79, 70, 229, 0.25);
     }
 
     .cta-band h2 {
@@ -578,18 +870,16 @@
     .cta-band p {
       margin: 0 auto 1.35rem;
       max-width: 44ch;
-      opacity: 0.9;
+      opacity: 0.92;
       font-size: 1rem;
     }
 
     .cta-band .btn-primary {
-      background: var(--accent);
-      color: #fff;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
     }
 
     .cta-band .btn-primary:hover {
-      background: var(--accent-hover);
-      color: #fff;
+      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.5);
     }
 
     footer {
@@ -621,14 +911,47 @@
         display: none;
       }
     }
+
+    @media (max-width: 639px) {
+      .credential-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Rocket-pencil logo: inline SVG reused in header + hero -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="rp-body" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#6366f1" />
+        <stop offset="100%" style="stop-color:#4f46e5" />
+      </linearGradient>
+      <linearGradient id="rp-flame" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" style="stop-color:#f97316" />
+        <stop offset="55%" style="stop-color:#fbbf24" />
+        <stop offset="100%" style="stop-color:#fef3c7" />
+      </linearGradient>
+    </defs>
+  </svg>
+
   <header>
     <div class="wrap nav">
       <div style="display:flex;align-items:center;gap:1rem;">
-        <a class="logo" href="#">McPrep Academy</a>
-        <span class="tagline-inline">Gamified SAT/ACT prep for the modern mind</span>
+        <a class="logo-lockup" href="#" aria-label="McPrep home">
+          <svg class="logo-mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="24,4 30,22 18,22" fill="#1e293b"/>
+            <polygon points="24,4 27,14 21,14" fill="#64748b"/>
+            <path d="M14 22 L34 22 L30 38 L18 38 Z" fill="url(#rp-body)"/>
+            <path d="M20 22 L28 22 L26 36 L22 36 Z" fill="#312e81" opacity="0.35"/>
+            <path d="M12 22 L16 30 L14 34 L10 22 Z" fill="#6366f1"/>
+            <path d="M36 22 L32 30 L34 34 L38 22 Z" fill="#6366f1"/>
+            <path d="M20 38 L24 44 L28 38 Z" fill="url(#rp-flame)"/>
+            <rect x="22" y="18" width="4" height="6" rx="1" fill="#cbd5e1"/>
+          </svg>
+          <span class="logo-text"><span class="mc">mc</span><span class="prep">Prep</span></span>
+        </a>
+        <span class="tagline-inline">Lvl up your SAT / ACT · Gamified prep</span>
       </div>
       <nav aria-label="Primary">
         <ul class="nav-links">
@@ -649,31 +972,81 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="eyebrow">McPrep Academy</span>
+          <div class="hero-brand">
+            <svg class="logo-mark" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="24,4 30,22 18,22" fill="#1e293b"/>
+              <polygon points="24,4 27,14 21,14" fill="#64748b"/>
+              <path d="M14 22 L34 22 L30 38 L18 38 Z" fill="url(#rp-body)"/>
+              <path d="M20 22 L28 22 L26 36 L22 36 Z" fill="#312e81" opacity="0.35"/>
+              <path d="M12 22 L16 30 L14 34 L10 22 Z" fill="#6366f1"/>
+              <path d="M36 22 L32 30 L34 34 L38 22 Z" fill="#6366f1"/>
+              <path d="M20 38 L24 44 L28 38 Z" fill="url(#rp-flame)"/>
+              <rect x="22" y="18" width="4" height="6" rx="1" fill="#cbd5e1"/>
+            </svg>
+            <p class="wordmark"><span class="mc">mc</span><span class="prep">Prep</span></p>
+          </div>
+          <span class="eyebrow">SAT · ACT · Rank up</span>
           <h1>Boost your SAT or ACT score in just 3 sessions</h1>
           <p class="hero-lead">
-            Instruction is organized into small, digestible skill challenges with competition and reward systems designed to capture the modern Gen Z mind.
+            Skill challenges, team runs, and clear feedback loops—built like the apps you already use. Short wins, steady streaks, real score gains.
           </p>
           <div class="hero-ctas" id="survey">
             <a class="btn btn-primary" href="#">Decide SAT or ACT with this quick survey</a>
             <a class="btn btn-ghost" href="#programs">View the Program</a>
           </div>
-          <ul class="trust">
-            <li><strong>UC Berkeley Business &amp; Engineering Graduate</strong>Academic foundation</li>
-            <li><strong>99th Percentile SAT &amp; ACT</strong>Proven mastery</li>
-            <li><strong>10+ Years Tutoring Experience</strong>Consistent results</li>
-            <li><strong>Local High School Math Teacher</strong>Encinitas-based</li>
-          </ul>
         </div>
-        <div class="hero-visual">
-          <img
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=85"
-            alt="High school students collaborating on academic work together"
-            width="600"
-            height="450"
-            loading="eager"
-          />
-          <span class="hud-corner">Team challenge</span>
+        <div class="leaderboard-visual" role="img" aria-label="Illustration: session leaderboard with XP gains for Math, Reading, and Science proficiencies">
+          <div class="lb-chrome" aria-hidden="true">
+            <span class="lb-dot"></span>
+            <span class="lb-dot"></span>
+            <span class="lb-dot"></span>
+            <span class="lb-title">Session leaderboard</span>
+          </div>
+          <div class="lb-content">
+            <div class="lb-banner">⚡ XP streak · proficiencies rising</div>
+            <div class="lb-row">
+              <span class="lb-icon math" aria-hidden="true">∑</span>
+              <div>
+                <span class="lb-name">Math</span>
+                <span class="lb-sublabel">Proficiency</span>
+                <div class="lb-bar" aria-hidden="true"><div class="lb-fill math"></div></div>
+              </div>
+              <div class="lb-points">
+                <span class="lb-num">2,840</span>
+                <small>XP</small>
+                <span class="lb-delta">+180</span>
+              </div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-icon reading" aria-hidden="true">R</span>
+              <div>
+                <span class="lb-name">Reading</span>
+                <span class="lb-sublabel">Proficiency</span>
+                <div class="lb-bar" aria-hidden="true"><div class="lb-fill reading"></div></div>
+              </div>
+              <div class="lb-points">
+                <span class="lb-num">2,120</span>
+                <small>XP</small>
+                <span class="lb-delta">+150</span>
+              </div>
+            </div>
+            <div class="lb-row">
+              <span class="lb-icon science" aria-hidden="true">⚗</span>
+              <div>
+                <span class="lb-name">Science reasoning</span>
+                <span class="lb-sublabel">Proficiency</span>
+                <div class="lb-bar" aria-hidden="true"><div class="lb-fill science"></div></div>
+              </div>
+              <div class="lb-points">
+                <span class="lb-num">1,905</span>
+                <small>XP</small>
+                <span class="lb-delta">+120</span>
+              </div>
+            </div>
+          </div>
+          <span class="lb-float one" aria-hidden="true">+120 XP</span>
+          <span class="lb-float two" aria-hidden="true">+150 XP</span>
+          <span class="lb-float three" aria-hidden="true">LEVEL ↑</span>
         </div>
       </div>
     </section>
@@ -682,12 +1055,12 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Meet Your Instructor</h2>
-          <p>Ryan McCormick — founder of McPrep Academy and your guide through gamified, strategy-first prep.</p>
+          <p>Ryan McCormick — founder of McPrep and your guide through gamified, strategy-first prep.</p>
         </div>
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Hi, I'm Ryan McCormick, a 27-year-old high school math teacher based in Encinitas and the founder of McPrep Academy.
+              Hi, I'm Ryan McCormick, a 27-year-old high school math teacher based in Encinitas and the founder of McPrep.
             </p>
             <p>
               My mission is simple: bring games, competition, and fun into education to capture the modern mind.
@@ -698,25 +1071,38 @@
             <p>
               My goal is to bring youthful energy and entertainment to learning, and boost student motivation and focus. By teaching SAT/ACT prep in bite-sized strategies, utilizing teams and gamified challenges, and rewarding effort with points, I can turn the modern distracted mind into a learning powerhouse!
             </p>
-            <div class="icon-blocks">
-              <div class="icon-block">
-                <div class="icon" aria-hidden="true">▣</div>
-                <h3>UC Berkeley Engineering</h3>
-                <p>Business &amp; engineering background</p>
+            <div class="credential-grid">
+              <div class="credential-card">
+                <span class="cred-accent" aria-hidden="true"></span>
+                <div class="cred-body">
+                  <strong>UC Berkeley Business &amp; Engineering Graduate</strong>
+                  <span class="cred-sub">Academic foundation you can trust</span>
+                </div>
               </div>
-              <div class="icon-block">
-                <div class="icon" aria-hidden="true">∑</div>
-                <h3>High School Math Teacher</h3>
-                <p>Current classroom experience</p>
+              <div class="credential-card">
+                <span class="cred-accent" aria-hidden="true"></span>
+                <div class="cred-body">
+                  <strong>99th Percentile SAT &amp; ACT</strong>
+                  <span class="cred-sub">Proven test mastery</span>
+                </div>
               </div>
-              <div class="icon-block">
-                <div class="icon" aria-hidden="true">10+</div>
-                <h3>Years Tutoring Experience</h3>
-                <p>Deep familiarity with the tests</p>
+              <div class="credential-card">
+                <span class="cred-accent" aria-hidden="true"></span>
+                <div class="cred-body">
+                  <strong>10+ Years Tutoring Experience</strong>
+                  <span class="cred-sub">Consistent, repeatable results</span>
+                </div>
+              </div>
+              <div class="credential-card">
+                <span class="cred-accent" aria-hidden="true"></span>
+                <div class="cred-body">
+                  <strong>Local High School Math Teacher</strong>
+                  <span class="cred-sub">Encinitas-based · classroom current</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="instructor-photo" role="img" aria-label="Ryan McCormick, founder of McPrep Academy">RM</div>
+          <div class="instructor-photo" role="img" aria-label="Ryan McCormick, founder of McPrep">RM</div>
         </div>
       </div>
     </section>
@@ -854,7 +1240,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© <span id="y"></span> McPrep Academy. SAT prep Carlsbad · ACT tutoring San Diego.</span>
+      <span>© <span id="y"></span> McPrep. SAT prep Carlsbad · ACT tutoring San Diego.</span>
       <span><a href="mailto:ryan@mcprep.academy">ryan@mcprep.academy</a></span>
     </div>
   </footer>
