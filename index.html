@@ -6,6 +6,8 @@
   <title>McPrep — Gamified SAT/ACT Prep | Online</title>
   <meta name="description" content="Gamified SAT and ACT prep online. Live Zoom boot camps, small groups, and coaching from an experienced high school math teacher — students welcome nationwide." />
   <meta name="keywords" content="online SAT prep, online ACT prep, SAT ACT boot camp Zoom, live online test prep, gamified SAT prep, ACT tutoring online, McPrep" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -632,23 +634,39 @@
       margin-bottom: 0;
     }
 
-    .instructor-photo {
+    .instructor-photo-wrap {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
       width: 100%;
       max-width: 380px;
       margin-inline: auto;
-      aspect-ratio: 4 / 5;
-      border-radius: 14px;
-      border: 2px solid var(--line);
-      background: linear-gradient(160deg, var(--hud-soft) 0%, var(--accent-soft) 50%, var(--cyan-soft) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: 800;
-      font-family: Outfit, sans-serif;
-      color: var(--hud);
-      letter-spacing: -0.05em;
-      box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.2);
+    }
+
+    .instructor-photo-wrap .instructor-photo {
+      display: block;
+      width: min(160px, 100%);
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 12px 32px -10px rgba(15, 23, 42, 0.28),
+        0 0 0 1px rgba(216, 222, 233, 0.9);
+    }
+
+    @media (max-width: 799px) {
+      .about-grid .instructor-photo-wrap {
+        order: -1;
+        margin-bottom: 0.25rem;
+      }
+
+      .about-grid {
+        gap: 1.75rem;
+      }
     }
 
     .credential-grid {
@@ -1206,7 +1224,17 @@
               </div>
             </div>
           </div>
-          <div class="instructor-photo" role="img" aria-label="Ryan McCormick, founder of McPrep">RM</div>
+          <figure class="instructor-photo-wrap">
+            <img
+              class="instructor-photo"
+              src="images/ryan.jpg"
+              alt="Ryan McCormick, founder of McPrep"
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </div>
       </div>
     </section>
