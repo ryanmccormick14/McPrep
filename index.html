@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>McPrep — Gamified SAT/ACT Prep | Carlsbad &amp; San Diego</title>
-  <meta name="description" content="Gamified SAT and ACT preparation in North County San Diego. Live boot camps, small groups, and coaching from a local high school SAT/ACT teacher. SAT prep Carlsbad, ACT tutoring San Diego." />
-  <meta name="keywords" content="SAT prep Carlsbad, SAT tutoring Carlsbad, SAT prep San Diego, ACT prep Carlsbad, SAT classes North County San Diego, ACT tutoring San Diego, McPrep" />
+  <title>McPrep — Gamified SAT/ACT Prep | Online</title>
+  <meta name="description" content="Gamified SAT and ACT prep online. Live Zoom boot camps, small groups, and coaching from an experienced high school math teacher — students welcome nationwide." />
+  <meta name="keywords" content="online SAT prep, online ACT prep, SAT ACT boot camp Zoom, live online test prep, gamified SAT prep, ACT tutoring online, McPrep" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -191,7 +191,9 @@
 
     .nav-links a:hover {
       color: var(--accent);
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+      text-decoration-thickness: 1px;
     }
 
     .btn {
@@ -805,11 +807,35 @@
       position: relative;
       height: 100%;
       border: 1px solid var(--line);
+      border-top: 3px solid var(--pricing-accent, var(--line));
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     #programs .pricing-card:hover {
       border-color: #cbd5e1;
+      box-shadow: 0 10px 28px -12px rgba(15, 23, 42, 0.12);
+    }
+
+    #programs .pricing-card--pay {
+      --pricing-accent: #0ea5e9;
+      background: linear-gradient(180deg, rgba(224, 242, 254, 0.55) 0%, var(--surface) 42%);
+      border: 1px solid #bae6fd;
+      border-top: 3px solid #0ea5e9;
+    }
+
+    #programs .pricing-card--pay:hover {
+      border-color: #7dd3fc;
+    }
+
+    #programs .pricing-card--obligation {
+      --pricing-accent: #8b5cf6;
+      background: linear-gradient(180deg, rgba(237, 233, 254, 0.55) 0%, var(--surface) 42%);
+      border: 1px solid #ddd6fe;
+      border-top: 3px solid #8b5cf6;
+    }
+
+    #programs .pricing-card--obligation:hover {
+      border-color: #c4b5fd;
     }
 
     #programs .pricing-card--featured {
@@ -891,6 +917,16 @@
       margin: 0;
       color: var(--ink-muted);
       font-size: 0.98rem;
+    }
+
+    .faq-item a {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .faq-item a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
     }
 
     .contact-grid {
@@ -1128,7 +1164,7 @@
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Hi, I'm Ryan McCormick, a 27-year-old high school math teacher based in Encinitas and the founder of McPrep.
+              Hi, I'm Ryan McCormick, a 27-year-old high school math teacher based in San Diego and the founder of McPrep.
             </p>
             <p>
               My mission is simple: bring games, competition, and fun into education to capture the modern mind.
@@ -1164,8 +1200,8 @@
               <div class="credential-card">
                 <span class="cred-accent" aria-hidden="true"></span>
                 <div class="cred-body">
-                  <strong>Local High School Math Teacher</strong>
-                  <span class="cred-sub">Encinitas-based · classroom current</span>
+                  <strong>High School Math Teacher</strong>
+                  <span class="cred-sub">San Diego-based · classroom current</span>
                 </div>
               </div>
             </div>
@@ -1179,9 +1215,6 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Programs</h2>
-          <p>
-            Most students improve <strong style="color:var(--ink);font-weight:700;">150+ points</strong> through bite-sized strategy training, gamified challenges, and personalized coaching. Boot camps run live on Zoom in small groups.
-          </p>
         </div>
         <div class="embed-frame">
           <iframe id="bootcamp-iframe" src="bootcamp-table.html" title="SAT and ACT boot camp schedule and enrollment"></iframe>
@@ -1196,11 +1229,11 @@
               <h3>First class is free</h3>
               <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
             </article>
-            <article class="card pricing-card">
+            <article class="card pricing-card pricing-card--pay">
               <h3>Pay only if you continue</h3>
               <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
             </article>
-            <article class="card pricing-card">
+            <article class="card pricing-card pricing-card--obligation">
               <h3>No obligation, ever</h3>
               <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
             </article>
@@ -1248,8 +1281,7 @@
           </div>
           <div class="faq-item">
             <h3>Should I take the SAT or ACT?</h3>
-            <p>Most students should focus on one test rather than preparing for both. Although the SAT and ACT are accepted equally by colleges, the exams emphasize different skills. The SAT generally favors deeper reasoning and problem solving, while the ACT rewards faster pacing and quick recognition of patterns.</p>
-            <p style="margin-top:0.75rem;">Because of these differences, students typically perform better on the exam that aligns with their learning and test-taking style. The best way to determine this is to take the SAT/ACT Decider Survey, which recommends the test that fits each student best.</p>
+            <p>It depends on your strengths — the two tests reward different skills. The fastest way to find out which is right for you is to take our quick <a href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT vs ACT quiz</a>. It takes under 3 minutes and gives you a personalized recommendation.</p>
           </div>
           <div class="faq-item">
             <h3>Is the SAT still important for college admissions?</h3>
@@ -1284,7 +1316,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© <span id="y"></span> McPrep. SAT prep Carlsbad · ACT tutoring San Diego.</span>
+      <span>© <span id="y"></span> McPrep. Live online SAT &amp; ACT prep · Zoom</span>
       <span><a href="mailto:ryan@mcprep.academy">ryan@mcprep.academy</a></span>
     </div>
   </footer>

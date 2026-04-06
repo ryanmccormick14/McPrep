@@ -181,6 +181,14 @@
       line-height: 1.45;
     }
 
+    .session-dates-muted {
+      margin: 0.2rem 0 0;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
     .session-time {
       display: block;
       margin-top: 0.45rem;
@@ -194,19 +202,26 @@
       line-height: 1.45;
     }
 
-    .price-cell .price-main {
-      display: block;
-      font-weight: 800;
-      font-size: 0.9375rem;
-      color: #0c1222;
+    .price-badge {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.01em;
+      color: #137333;
+      background: #e6f4ea;
+      border: 1px solid #b8dfc4;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      line-height: 1.25;
     }
 
     .price-cell .price-sub {
       display: block;
-      margin-top: 0.35rem;
-      font-size: 0.8125rem;
+      margin-top: 0.42rem;
+      font-size: 0.78rem;
       font-weight: 500;
       color: #64748b;
+      line-height: 1.45;
     }
 
     .btn-enroll {
@@ -214,21 +229,33 @@
       align-items: center;
       justify-content: center;
       font-family: inherit;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      padding: 0.5rem 0.95rem;
-      border-radius: 8px;
-      border: 1px solid #0c1222;
-      background: #ffffff;
-      color: #0c1222;
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+      color: #ffffff;
       text-decoration: none;
       white-space: nowrap;
-      transition: background 0.12s ease, color 0.12s ease;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
     }
 
     .btn-enroll:hover {
-      background: #0c1222;
-      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45);
+      filter: brightness(1.05);
+    }
+
+    .btn-enroll:active {
+      transform: translateY(0);
+      filter: brightness(0.98);
+    }
+
+    .btn-enroll:focus-visible {
+      outline: 2px solid #6366f1;
+      outline-offset: 2px;
     }
 
     .footer-notes {
@@ -276,13 +303,13 @@
               <span class="test-date">May 2, 2026<span class="sub">Official test day</span></span>
             </td>
             <td>
-              <p class="session-line">Mondays Apr 13, Apr 20, Apr 27 · 7:00–9:00 PM PT</p>
+              <p class="session-line">Mondays 7–9 PM PT</p>
+              <p class="session-dates-muted">(Apr 13, 20, 27)</p>
             </td>
             <td>
               <div class="price-cell">
-                <strong class="price-main">First class free</strong>
-                <span class="price-sub">$80/class ($40/hr · 2 hrs) for remaining 2 sessions</span>
-                <span class="price-sub">Total after free session: $160</span>
+                <span class="price-badge">First class free</span>
+                <span class="price-sub">$160 for 2 sessions · $40/hr</span>
               </div>
             </td>
             <td><a class="btn-enroll" href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Sign up ↗</a></td>
@@ -293,13 +320,13 @@
               <span class="test-date">June 6, 2026<span class="sub">Official test day</span></span>
             </td>
             <td>
-              <p class="session-line">Mondays May 18, May 25, Jun 1 · 7:00–9:00 PM PT</p>
+              <p class="session-line">Mondays 7–9 PM PT</p>
+              <p class="session-dates-muted">(May 18, 25, Jun 1)</p>
             </td>
             <td>
               <div class="price-cell">
-                <strong class="price-main">First class free</strong>
-                <span class="price-sub">$80/class ($40/hr · 2 hrs) for remaining 2 sessions</span>
-                <span class="price-sub">Total after free session: $160</span>
+                <span class="price-badge">First class free</span>
+                <span class="price-sub">$160 for 2 sessions · $40/hr</span>
               </div>
             </td>
             <td><a class="btn-enroll" href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Sign up ↗</a></td>
@@ -310,13 +337,13 @@
               <span class="test-date">June 13, 2026<span class="sub">Official test day</span></span>
             </td>
             <td>
-              <p class="session-line">Tuesdays May 26, Jun 2, Jun 9 · 7:00–9:00 PM PT</p>
+              <p class="session-line">Tuesdays 7–9 PM PT</p>
+              <p class="session-dates-muted">(May 26, Jun 2, 9)</p>
             </td>
             <td>
               <div class="price-cell">
-                <strong class="price-main">First class free</strong>
-                <span class="price-sub">$80/class ($40/hr · 2 hrs) for remaining 2 sessions</span>
-                <span class="price-sub">Total after free session: $160</span>
+                <span class="price-badge">First class free</span>
+                <span class="price-sub">$160 for 2 sessions · $40/hr</span>
               </div>
             </td>
             <td><a class="btn-enroll" href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Sign up ↗</a></td>
@@ -332,9 +359,8 @@
             </td>
             <td>
               <div class="price-cell">
-                <strong class="price-main">First class free</strong>
-                <span class="price-sub">$80/class ($40/hr · 2 hrs) for remaining 2 sessions</span>
-                <span class="price-sub">Total after free session: $160</span>
+                <span class="price-badge">First class free</span>
+                <span class="price-sub">$160 for 2 sessions · $40/hr</span>
               </div>
             </td>
             <td><a class="btn-enroll" href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Submit interest</a></td>
