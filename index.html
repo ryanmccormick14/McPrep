@@ -797,69 +797,75 @@
       }
     }
 
-    #programs .enroll-flow-cards {
+    #programs .pricing-cards {
       margin-top: 0;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step {
-      border-width: 2px;
-      box-shadow: 0 10px 28px -12px rgba(79, 70, 229, 0.18);
+    #programs .pricing-card {
+      position: relative;
+      height: 100%;
+      border: 1px solid var(--line);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step.step-1 {
-      border-color: #a5b4fc;
-      background: linear-gradient(165deg, #eef2ff 0%, #f8fafc 45%, var(--surface) 100%);
+    #programs .pricing-card:hover {
+      border-color: #cbd5e1;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step.step-2 {
-      border-color: #5eead4;
-      background: linear-gradient(165deg, #ccfbf1 0%, #f8fafc 45%, var(--surface) 100%);
+    #programs .pricing-card--featured {
+      border: 2px solid #6ee7b7;
+      background: linear-gradient(165deg, #ecfdf5 0%, #f8fafc 42%, var(--surface) 100%);
+      box-shadow: 0 14px 36px -16px rgba(16, 185, 129, 0.28);
     }
 
-    #programs .enroll-flow-cards .card-enroll-step.step-3 {
-      border-color: #86efac;
-      background: linear-gradient(165deg, #dcfce7 0%, #f8fafc 45%, var(--surface) 100%);
+    #programs .pricing-card--featured:hover {
+      border-color: #34d399;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step .card-num {
-      color: var(--accent);
+    #programs .pricing-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #047857;
+      background: rgba(209, 250, 229, 0.95);
+      border: 1px solid #a7f3d0;
+      padding: 0.32rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step.step-2 .card-num {
-      color: #0d9488;
+    #programs .pricing-card h3 {
+      font-size: 1.07rem;
+      margin: 0 0 0.55rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
     }
 
-    #programs .enroll-flow-cards .card-enroll-step.step-3 .card-num {
-      color: #16a34a;
+    #programs .pricing-card p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
     }
 
-    .programs-enroll-block {
+    .programs-pricing-block {
       margin-top: 2.75rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--line);
     }
 
-    .programs-enroll-block .enroll-head {
-      margin-bottom: 1.25rem;
+    .programs-pricing-block .pricing-head {
+      margin-bottom: 1.35rem;
     }
 
-    .programs-enroll-block .enroll-head h3 {
-      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-      margin: 0 0 0.35rem;
-    }
-
-    .programs-enroll-block .enroll-head p {
+    .programs-pricing-block .pricing-head h3 {
+      font-size: clamp(1.25rem, 2.6vw, 1.5rem);
       margin: 0;
-      color: var(--ink-muted);
-      font-size: 0.98rem;
-    }
-
-    .programs-enroll-cta {
-      margin-top: 1.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
     .faq-list {
@@ -1018,7 +1024,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn btn-primary" href="#survey">Take the survey</a>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
     </div>
   </header>
 
@@ -1054,7 +1060,7 @@
             Affordable, group Zoom sessions with modern tools, competition and digestible instruction to streamline test improvement.
           </p>
           <div class="hero-ctas" id="survey">
-            <a class="btn btn-primary" href="#">Decide SAT or ACT with this quick survey</a>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
             <a class="btn btn-ghost" href="#programs">View the Program</a>
           </div>
         </div>
@@ -1180,30 +1186,24 @@
         <div class="embed-frame">
           <iframe id="bootcamp-iframe" src="bootcamp-table.html" title="SAT and ACT boot camp schedule and enrollment"></iframe>
         </div>
-        <div class="programs-enroll-block" id="enrollment">
-          <div class="enroll-head">
-            <h3>How enrollment works</h3>
-            <p>Three steps from “which test?” to your seat in the next boot camp.</p>
+        <div class="programs-pricing-block" id="how-pricing">
+          <div class="pricing-head">
+            <h3>How pricing works</h3>
           </div>
-          <div class="cards enroll-flow-cards">
-            <article class="card card-enroll-step step-1">
-              <div class="card-num">Step 1</div>
-              <h3>Take the decider survey</h3>
-              <p>Quick questions to clarify goals, timing, and learning style.</p>
+          <div class="cards pricing-cards">
+            <article class="card pricing-card pricing-card--featured">
+              <span class="pricing-badge">Free first session</span>
+              <h3>First class is free</h3>
+              <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
             </article>
-            <article class="card card-enroll-step step-2">
-              <div class="card-num">Step 2</div>
-              <h3>Get your recommendation</h3>
-              <p>Which test to take, ideal timeline, and a prep strategy tailored to you.</p>
+            <article class="card pricing-card">
+              <h3>Pay only if you continue</h3>
+              <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
             </article>
-            <article class="card card-enroll-step step-3">
-              <div class="card-num">Step 3</div>
-              <h3>Enroll in boot camp</h3>
-              <p>Reserve a seat in the cohort that matches your test date.</p>
+            <article class="card pricing-card">
+              <h3>No obligation, ever</h3>
+              <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
             </article>
-          </div>
-          <div class="programs-enroll-cta">
-            <a class="btn btn-primary" href="#survey">Take the SAT/ACT Decider Survey</a>
           </div>
         </div>
       </div>
