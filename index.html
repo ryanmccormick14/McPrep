@@ -778,22 +778,22 @@
 
     .embed-frame {
       border-radius: 14px;
-      overflow: hidden;
+      overflow: visible;
       border: 2px solid var(--line);
       background: #fff;
-      min-height: 420px;
+      min-height: 0;
     }
 
     .embed-frame iframe {
       width: 100%;
-      height: 500px;
+      height: 820px;
       border: none;
       display: block;
     }
 
     @media (max-width: 599px) {
       .embed-frame iframe {
-        height: 580px;
+        height: 880px;
       }
     }
 
@@ -1118,7 +1118,6 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Meet Your Instructor</h2>
-          <p>Ryan McCormick — founder of McPrep and your guide through gamified, strategy-first prep.</p>
         </div>
         <div class="about-grid">
           <div class="about-text">
@@ -1179,7 +1178,7 @@
           </p>
         </div>
         <div class="embed-frame">
-          <iframe src="bootcamp-table.html" title="SAT and ACT boot camp schedule and enrollment"></iframe>
+          <iframe id="bootcamp-iframe" src="bootcamp-table.html" title="SAT and ACT boot camp schedule and enrollment"></iframe>
         </div>
         <div class="programs-enroll-block" id="enrollment">
           <div class="enroll-head">
@@ -1260,10 +1259,6 @@
             <h3>Who is this program best for?</h3>
             <p>Motivated students who want to maximize their score and improve their college admissions opportunities.</p>
           </div>
-          <div class="faq-item">
-            <h3>What grade should students start preparing?</h3>
-            <p>Most students begin serious preparation in 10th or 11th grade.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -1272,7 +1267,6 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Contact</h2>
-          <p>Serving Carlsbad, Encinitas, and North County San Diego — plus students anywhere for live Zoom boot camps.</p>
         </div>
         <div class="contact-grid">
           <div class="contact-card">
@@ -1297,6 +1291,28 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    (function () {
+      var iframe = document.getElementById("bootcamp-iframe");
+      if (!iframe) return;
+      var fallback = window.matchMedia("(max-width: 599px)").matches ? 880 : 820;
+      function resizeBootcampIframe() {
+        try {
+          var doc = iframe.contentWindow && iframe.contentWindow.document;
+          if (doc && doc.body) {
+            var h = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight);
+            iframe.style.height = Math.ceil(h + 24) + "px";
+            return;
+          }
+        } catch (e) {}
+        iframe.style.height = fallback + "px";
+      }
+      iframe.addEventListener("load", resizeBootcampIframe);
+      window.addEventListener("resize", resizeBootcampIframe);
+      if (iframe.contentDocument && iframe.contentDocument.readyState === "complete") {
+        resizeBootcampIframe();
+      }
+    })();
   </script>
 </body>
 </html>
