@@ -634,6 +634,292 @@
       margin-bottom: 0;
     }
 
+    /* Curriculum */
+    #curriculum .section-head {
+      margin-bottom: 1.65rem;
+    }
+
+    #curriculum .section-head p {
+      font-size: 1.03rem;
+    }
+
+    .powered-card {
+      border-radius: 16px;
+      border: 1px solid rgba(99, 102, 241, 0.22);
+      background:
+        radial-gradient(900px 220px at 10% 0%, rgba(99, 102, 241, 0.22), transparent 52%),
+        radial-gradient(700px 260px at 100% 20%, rgba(34, 211, 238, 0.16), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 242, 255, 0.5) 100%);
+      box-shadow:
+        0 18px 46px -26px rgba(15, 23, 42, 0.35),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+      padding: 1.35rem 1.15rem;
+      margin-bottom: 1.5rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 740px) {
+      .powered-card {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        padding: 1.5rem 1.6rem;
+      }
+    }
+
+    .powered-card .powered-kicker {
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #334155;
+    }
+
+    .powered-card .powered-kicker::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent-bright), var(--cyan));
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+    }
+
+    .powered-card h3 {
+      margin: 0.25rem 0 0.35rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .powered-card p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 0.97rem;
+      line-height: 1.6;
+      max-width: 72ch;
+    }
+
+    .powered-card .powered-actions {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .powered-card .powered-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.05rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .powered-card .powered-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
+    }
+
+    .curriculum-grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .curriculum-timeline {
+      position: relative;
+      padding-left: 1.05rem;
+    }
+
+    .curriculum-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.48rem;
+      top: 0.55rem;
+      bottom: 0.55rem;
+      width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.55), rgba(34, 211, 238, 0.32), rgba(245, 158, 11, 0.28));
+    }
+
+    .curr-step {
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid rgba(216, 222, 233, 0.95);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 242, 247, 0.5) 100%);
+      box-shadow: 0 12px 28px -22px rgba(15, 23, 42, 0.35);
+      overflow: hidden;
+    }
+
+    .curr-step::before {
+      content: "";
+      position: absolute;
+      left: -0.02rem;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--step-accent, var(--accent));
+      opacity: 0.95;
+    }
+
+    .curr-step::after {
+      content: "";
+      position: absolute;
+      left: 0.18rem;
+      top: 1.15rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--step-accent, var(--accent));
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.95), 0 0 0 6px rgba(99, 102, 241, 0.15);
+      transform: translateX(-1.35rem);
+    }
+
+    .curr-step__toggle {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      padding: 1.1rem 1.05rem 0.95rem 1.15rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.85rem;
+      align-items: center;
+      text-align: left;
+    }
+
+    .curr-step__toggle:hover .curr-step__title {
+      color: var(--accent-hover);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 1px;
+    }
+
+    .curr-step__num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(216, 222, 233, 0.95);
+      box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.35);
+      color: var(--step-accent, var(--accent));
+    }
+
+    .curr-step__title {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .curr-step__chev {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #64748b;
+      transition: transform 0.18s ease;
+    }
+
+    .curr-step.is-open .curr-step__chev {
+      transform: rotate(180deg);
+    }
+
+    .curr-step__body {
+      padding: 0 1.15rem 1.15rem;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.22s ease;
+    }
+
+    .curr-step.is-open .curr-step__body {
+      max-height: 520px;
+      opacity: 1;
+    }
+
+    .curr-step__body ul {
+      margin: 0.2rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--ink-muted);
+    }
+
+    .curr-step__body li {
+      margin: 0.4rem 0;
+    }
+
+    .curr-practice {
+      margin: 0.35rem 0 0.35rem;
+      border-radius: 14px;
+      border: 2px dashed rgba(99, 102, 241, 0.28);
+      background: rgba(238, 242, 255, 0.45);
+      padding: 0.9rem 1.05rem;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .curr-practice::before {
+      content: "Practice assignment";
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 0.35rem;
+    }
+
+    .curr-milestone {
+      border-radius: 18px;
+      border: 2px solid rgba(245, 158, 11, 0.35);
+      background:
+        radial-gradient(700px 220px at 10% 0%, rgba(245, 158, 11, 0.16), transparent 52%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(254, 243, 199, 0.35) 100%);
+      padding: 1.15rem 1.15rem 1.15rem 1.2rem;
+      box-shadow: 0 16px 42px -26px rgba(245, 158, 11, 0.55);
+    }
+
+    .curr-milestone h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .curr-milestone h3 .trophy {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #b45309;
+      font-weight: 900;
+    }
+
+    .curr-milestone p {
+      margin: 0;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
     .instructor-photo-wrap {
       margin: 0;
       display: flex;
@@ -1270,6 +1556,87 @@
       </div>
     </section>
 
+    <section id="curriculum">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What we cover</h2>
+          <p>Three focused sessions, built around your test.</p>
+        </div>
+
+        <div class="powered-card">
+          <div class="powered-copy">
+            <span class="powered-kicker">Powered by</span>
+            <h3><a href="https://www.oneprep.xyz" target="_blank" rel="noopener noreferrer">Powered by OnePrepXYZ</a></h3>
+            <p>
+              We use OnePrepXYZ — a modern, AI-powered test prep platform built for how students actually learn today. Features include a full SAT &amp; ACT question bank broken down by topic, Question Rush for in-class competition and topic mastery, an AI chatbot that delivers instant feedback and bite-sized strategies, and a points and streak system that keeps students motivated and engaged.
+            </p>
+          </div>
+          <div class="powered-actions">
+            <a class="powered-btn" href="https://www.oneprep.xyz" target="_blank" rel="noopener noreferrer">Visit OnePrepXYZ ↗</a>
+          </div>
+        </div>
+
+        <div class="curriculum-grid curriculum-timeline">
+          <article class="curr-step" style="--step-accent: var(--accent);" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">1</span>
+              <span class="curr-step__title">Test Overview &amp; Math: Algebra</span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <ul>
+                <li>High-level overview of the SAT or ACT structure, timing, and scoring</li>
+                <li>Core test-taking strategies and mindset for preparation</li>
+                <li>Dive into Math: Algebra and Advanced Math sections</li>
+                <li>Live practice problems using OnePrepXYZ question bank</li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="curr-practice">Students complete assigned practice problems covering Algebra and Advanced Math to reinforce session concepts.</div>
+
+          <article class="curr-step" style="--step-accent: #06b6d4;" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">2</span>
+              <span class="curr-step__title">Math: Data, Geometry &amp; Trigonometry</span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <ul>
+                <li>Problem Solving &amp; Data Analysis (ratios, percentages, statistics, data interpretation)</li>
+                <li>Geometry and Trigonometry</li>
+                <li>Live practice problems and Question Rush competition</li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="curr-practice">Students complete assigned practice problems covering Data Analysis, Geometry, and Trigonometry.</div>
+
+          <article class="curr-step" style="--step-accent: #f59e0b;" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">3</span>
+              <span class="curr-step__title">Reading, Writing &amp; (ACT) Science</span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <ul>
+                <li>Full Reading &amp; Writing component broken into 4 areas: Craft &amp; Structure, Expression of Ideas, Information &amp; Ideas, Standard English Grammar</li>
+                <li>ACT students: Science section also covered, including data interpretation and passage-based reasoning</li>
+                <li><em>ACT students also cover the Science section in this session.</em></li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="curr-milestone">
+            <h3><span class="trophy" aria-hidden="true">🏆</span>Full-Length Practice Test</h3>
+            <p>
+              After completing all 3 sessions, students are assigned a full-length official practice test. We cover how to simulate real testing conditions — proper timing, minimizing distractions, and building the focus and stamina the test demands. This is your dress rehearsal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="alt" id="results">
       <div class="wrap">
         <div class="section-head">
@@ -1351,6 +1718,29 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    (function () {
+      var steps = document.querySelectorAll("[data-curr-step]");
+      if (!steps || !steps.length) return;
+
+      steps.forEach(function (step) {
+        var btn = step.querySelector(".curr-step__toggle");
+        var body = step.querySelector(".curr-step__body");
+        if (!btn || !body) return;
+
+        function setOpen(nextOpen) {
+          step.classList.toggle("is-open", nextOpen);
+          btn.setAttribute("aria-expanded", nextOpen ? "true" : "false");
+          body.setAttribute("aria-hidden", nextOpen ? "false" : "true");
+        }
+
+        setOpen(false);
+        btn.addEventListener("click", function () {
+          var isOpen = step.classList.contains("is-open");
+          setOpen(!isOpen);
+        });
+      });
+    })();
 
     (function () {
       var iframe = document.getElementById("bootcamp-iframe");
