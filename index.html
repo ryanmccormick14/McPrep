@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>McPrep — Gamified SAT/ACT Prep | Online</title>
   <meta name="description" content="Gamified SAT and ACT prep online. Live Zoom boot camps, small groups, and coaching from an experienced high school math teacher — students welcome nationwide." />
-  <meta name="keywords" content="online SAT prep, online ACT prep, SAT ACT boot camp Zoom, live online test prep, gamified SAT prep, ACT tutoring online, McPrep" />
+  <meta name="keywords" content="online SAT prep, online ACT prep, SAT ACT boot camp Zoom, live online test prep, gamified SAT prep, ACT tutoring online, remote test prep, McPrep" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="McPrep — Gamified SAT/ACT Prep | Online" />
+  <meta property="og:description" content="Live online SAT and ACT prep on Zoom — gamified boot camps, small groups, and coaching from an experienced math teacher. Students nationwide welcome." />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="McPrep — Gamified SAT/ACT Prep | Online" />
+  <meta name="twitter:description" content="Live online SAT and ACT prep on Zoom — gamified boot camps, small groups, and coaching from an experienced math teacher." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -196,6 +203,105 @@
       text-decoration: underline;
       text-underline-offset: 0.22em;
       text-decoration-thickness: 1px;
+    }
+
+    .nav-burger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.65rem;
+      margin-left: auto;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .nav-burger:hover {
+      border-color: #cbd5e1;
+      background: var(--paper);
+    }
+
+    .nav-burger-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 16px;
+    }
+
+    .nav-burger-lines span {
+      display: block;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    header.nav-open .nav-burger-lines span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    header.nav-open .nav-burger-lines span:nth-child(2) {
+      opacity: 0;
+    }
+
+    header.nav-open .nav-burger-lines span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .nav-burger {
+        display: inline-flex;
+        order: 1;
+        margin-left: auto;
+      }
+
+      .nav {
+        align-items: center;
+      }
+
+      .header-cta {
+        order: 2;
+        margin-left: 0.45rem;
+        flex-shrink: 0;
+        padding: 0.55rem 0.85rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+      }
+
+      nav[aria-label="Primary"] {
+        width: 100%;
+        display: none;
+        order: 10;
+        padding-bottom: 0.1rem;
+      }
+
+      header.nav-open nav[aria-label="Primary"] {
+        display: block;
+        border-top: 1px solid var(--line);
+        margin-top: 0.65rem;
+        padding-top: 0.85rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem;
+        width: 100%;
+        padding: 0.15rem 0 0;
+      }
+
+      .logo-lockup {
+        order: 0;
+      }
     }
 
     .btn {
@@ -635,12 +741,50 @@
     }
 
     /* Curriculum */
+    .curriculum-band {
+      position: relative;
+      padding: clamp(3.25rem, 6.5vw, 4.75rem) 0;
+      margin: 0;
+      background:
+        radial-gradient(1100px 520px at 18% -12%, rgba(99, 102, 241, 0.14), transparent 55%),
+        radial-gradient(900px 520px at 92% 8%, rgba(34, 211, 238, 0.12), transparent 52%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2ff 38%, #ecfeff 100%);
+      border-top: 1px solid rgba(99, 102, 241, 0.22);
+      border-bottom: 1px solid var(--line);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        0 18px 46px -34px rgba(15, 23, 42, 0.18);
+    }
+
+    .curriculum-band::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.55) 25%, rgba(34, 211, 238, 0.45) 55%, rgba(245, 158, 11, 0.35) 78%, transparent 100%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .curriculum-band .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
     #curriculum .section-head {
       margin-bottom: 1.65rem;
+      max-width: 56ch;
+    }
+
+    #curriculum .section-head h2 {
+      font-size: clamp(1.75rem, 3.6vw, 2.25rem);
     }
 
     #curriculum .section-head p {
-      font-size: 1.03rem;
+      font-size: 1.05rem;
+      color: #475569;
     }
 
     .powered-card {
@@ -1062,24 +1206,175 @@
       margin-bottom: 0.5rem;
     }
 
-    .testimonial .quote {
-      font-size: 1rem;
-      color: var(--ink);
-      margin: 0 0 1rem;
-      line-height: 1.55;
+    .results-showcase {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(1000px 520px at 15% 0%, rgba(99, 102, 241, 0.18), transparent 58%),
+        radial-gradient(900px 480px at 85% 15%, rgba(34, 211, 238, 0.12), transparent 52%),
+        linear-gradient(180deg, #0b0f1a 0%, #12172a 48%, #0f172a 100%);
+      color: #e2e8f0;
+      border-block: 1px solid rgba(148, 163, 184, 0.18);
     }
 
-    .testimonial .by {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--ink);
+    .results-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 120%, rgba(99, 102, 241, 0.14), transparent 55%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 42%);
+      pointer-events: none;
+    }
+
+    .results-showcase .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .results-showcase .section-head h2 {
+      color: #f8fafc;
+    }
+
+    .results-showcase .section-head p {
+      color: rgba(226, 232, 240, 0.72);
+    }
+
+    .t-carousel {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .t-carousel.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .t-carousel-viewport {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.45);
+      box-shadow:
+        0 24px 80px -40px rgba(0, 0, 0, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+    }
+
+    .t-carousel-track {
+      display: flex;
+      width: calc(var(--t-slide-count, 3) * 100%);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .t-slide {
+      flex: 0 0 calc(100% / var(--t-slide-count, 3));
+      max-width: calc(100% / var(--t-slide-count, 3));
+      padding: clamp(1.75rem, 5vw, 3rem);
+      box-sizing: border-box;
+    }
+
+    .t-slide .quote {
       margin: 0;
+      font-size: clamp(1.25rem, 2.8vw, 1.85rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.32;
+      color: #f8fafc;
     }
 
-    .testimonial .role {
-      font-size: 0.8125rem;
-      color: var(--ink-muted);
-      margin: 0.2rem 0 0;
+    .t-slide .quote::before {
+      content: "“";
+      display: block;
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(120deg, #a5b4fc, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 900;
+    }
+
+    .t-slide .by {
+      margin: 1.75rem 0 0.2rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      letter-spacing: -0.02em;
+    }
+
+    .t-slide .role {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(226, 232, 240, 0.62);
+      line-height: 1.45;
+    }
+
+    .t-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.35rem;
+      flex-wrap: wrap;
+    }
+
+    .t-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.55);
+      color: #f8fafc;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+
+    .t-nav-btn:hover {
+      border-color: rgba(165, 180, 252, 0.55);
+      background: rgba(30, 41, 59, 0.85);
+      transform: translateY(-1px);
+    }
+
+    .t-dots {
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .t-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(148, 163, 184, 0.35);
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .t-dot[aria-current="true"] {
+      background: linear-gradient(135deg, #a5b4fc, #22d3ee);
+      transform: scale(1.15);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .t-carousel-track {
+        transition: none;
+      }
+
+      .t-carousel {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     .embed-frame {
@@ -1109,7 +1404,7 @@
 
     #programs .pricing-card {
       position: relative;
-      height: 100%;
+      height: auto;
       border: 1px solid var(--line);
       border-top: 3px solid var(--pricing-accent, var(--line));
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -1163,18 +1458,73 @@
       border: 1px solid #a7f3d0;
       padding: 0.32rem 0.6rem;
       border-radius: 999px;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0;
+      flex-shrink: 0;
     }
 
-    #programs .pricing-card h3 {
+    #programs .pricing-acc-toggle {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.85rem;
+      align-items: center;
+      text-align: left;
+      padding: 1.15rem 1.15rem;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+    }
+
+    #programs .pricing-acc-toggle:focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: -2px;
+    }
+
+    #programs .pricing-acc-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    #programs .pricing-acc-title {
       font-size: 1.07rem;
-      margin: 0 0 0.55rem;
-      font-weight: 700;
+      margin: 0;
+      font-weight: 800;
       color: var(--ink);
       letter-spacing: -0.02em;
+      line-height: 1.25;
     }
 
-    #programs .pricing-card p {
+    #programs .pricing-acc-chev {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #64748b;
+      transition: transform 0.2s ease;
+      line-height: 1;
+    }
+
+    #programs .pricing-acc-item.is-open .pricing-acc-chev {
+      transform: rotate(180deg);
+    }
+
+    #programs .pricing-acc-body {
+      padding: 0 1.15rem 1.15rem;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.32s ease, opacity 0.22s ease;
+    }
+
+    #programs .pricing-acc-item.is-open .pricing-acc-body {
+      max-height: 320px;
+      opacity: 1;
+    }
+
+    #programs .pricing-acc-body p {
       margin: 0;
       color: var(--ink-muted);
       font-size: 0.95rem;
@@ -1182,9 +1532,9 @@
     }
 
     .programs-pricing-block {
-      margin-top: 2.75rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--line);
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: none;
     }
 
     .programs-pricing-block .pricing-head {
@@ -1289,12 +1639,6 @@
       color: var(--accent);
     }
 
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-    }
-
     @media (max-width: 639px) {
       .credential-grid {
         grid-template-columns: 1fr;
@@ -1354,17 +1698,22 @@
         </svg>
         <span class="logo-text"><span class="brand-mc">Mc</span><span class="brand-prep">Prep</span></span>
       </a>
+      <button type="button" class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav-list">
+        <span class="nav-burger-label">Menu</span>
+        <span class="nav-burger-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
       <nav aria-label="Primary">
-        <ul class="nav-links">
+        <ul id="primary-nav-list" class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#instructor">Meet Your Instructor</a></li>
           <li><a href="#programs">Programs</a></li>
+          <li><a href="#curriculum">Curriculum</a></li>
           <li><a href="#results">Results</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
+      <a class="btn btn-primary header-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
     </div>
   </header>
 
@@ -1401,7 +1750,7 @@
           </p>
           <div class="hero-ctas" id="survey">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
-            <a class="btn btn-ghost" href="#programs">View the Program</a>
+            <a class="btn btn-ghost" href="#programs">View Programs</a>
           </div>
         </div>
         <div class="leaderboard-visual" role="img" aria-label="Illustration: session leaderboard with XP gains for Math, Reading, and Science proficiencies">
@@ -1468,16 +1817,16 @@
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Hi, I'm Ryan McCormick, a 27-year-old high school math teacher based in San Diego and the founder of McPrep.
+              Hi, I'm Ryan McCormick - a high school math teacher in San Diego and the founder of McPrep.
             </p>
             <p>
-              My mission is simple: bring games, competition, and fun into education to capture the modern mind.
+              My mission is simple: make learning engaging, competitive, and actually enjoyable.
             </p>
             <p>
-              Today's students grow up in a world of overstimulation and constant feedback. Attention spans are shorter, and traditional instruction isn't engaging enough.
+              Today's students are used to constant stimulation and fast feedback, yet most instruction hasn't adapted. As a result, focus drops and motivation fades quickly. I've built my teaching style around this reality.
             </p>
             <p>
-              My goal is to bring youthful energy and entertainment to learning, and boost student motivation and focus. By teaching SAT/ACT prep in bite-sized strategies, utilizing teams and gamified challenges, and rewarding effort with points, I can turn the modern distracted mind into a learning powerhouse!
+              Through gamified lessons, team-based challenges, and bite-sized SAT/ACT strategies, I create an environment where students stay engaged, compete, and improve quickly. The result is simple - more focus, more confidence, and better scores.
             </p>
             <div class="credential-grid">
               <div class="credential-card">
@@ -1505,7 +1854,7 @@
                 <span class="cred-accent" aria-hidden="true"></span>
                 <div class="cred-body">
                   <strong>High School Math Teacher</strong>
-                  <span class="cred-sub">San Diego-based · classroom current</span>
+                  <span class="cred-sub">Real classroom experience</span>
                 </div>
               </div>
             </div>
@@ -1538,28 +1887,49 @@
             <h3>How pricing works</h3>
           </div>
           <div class="cards pricing-cards">
-            <article class="card pricing-card pricing-card--featured">
-              <span class="pricing-badge">Free first session</span>
-              <h3>First class is free</h3>
-              <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
+            <article class="card pricing-card pricing-card--featured pricing-acc-item" data-pricing-acc>
+              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
+                <span class="pricing-acc-head">
+                  <span class="pricing-badge">Free first session</span>
+                  <span class="pricing-acc-title">First class is free</span>
+                </span>
+                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pricing-acc-body" aria-hidden="true">
+                <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
+              </div>
             </article>
-            <article class="card pricing-card pricing-card--pay">
-              <h3>Pay only if you continue</h3>
-              <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
+            <article class="card pricing-card pricing-card--pay pricing-acc-item" data-pricing-acc>
+              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
+                <span class="pricing-acc-head">
+                  <span class="pricing-acc-title">Pay only if you continue</span>
+                </span>
+                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pricing-acc-body" aria-hidden="true">
+                <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
+              </div>
             </article>
-            <article class="card pricing-card pricing-card--obligation">
-              <h3>No obligation, ever</h3>
-              <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
+            <article class="card pricing-card pricing-card--obligation pricing-acc-item" data-pricing-acc>
+              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
+                <span class="pricing-acc-head">
+                  <span class="pricing-acc-title">No obligation, ever</span>
+                </span>
+                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pricing-acc-body" aria-hidden="true">
+                <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
+              </div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="curriculum">
+    <section class="curriculum-band" id="curriculum">
       <div class="wrap">
         <div class="section-head">
-          <h2>What we cover</h2>
+          <h2>Curriculum Outline</h2>
           <p>Three focused sessions, built around your test.</p>
         </div>
 
@@ -1622,7 +1992,6 @@
               <ul>
                 <li>Full Reading &amp; Writing component broken into 4 areas: Craft &amp; Structure, Expression of Ideas, Information &amp; Ideas, Standard English Grammar</li>
                 <li>ACT students: Science section also covered, including data interpretation and passage-based reasoning</li>
-                <li><em>ACT students also cover the Science section in this session.</em></li>
               </ul>
             </div>
           </article>
@@ -1637,28 +2006,37 @@
       </div>
     </section>
 
-    <section class="alt" id="results">
+    <section class="results-showcase" id="results">
       <div class="wrap">
         <div class="section-head">
           <h2>Results &amp; Testimonials</h2>
-          <p>What colleagues and students say about Ryan's teaching.</p>
+          <p>What colleagues and students say about working with Ryan.</p>
         </div>
-        <div class="cards">
-          <article class="card testimonial">
-            <p class="quote">"Ryan brings a vitalizing good vibe to teaching that is truly contagious; the students feed off his energy and are encouraged to take risks and engage with difficult mathematical concepts."</p>
-            <p class="by">Erin Turner</p>
-            <p class="role">Sage Creek High School Math Department Head</p>
-          </article>
-          <article class="card testimonial">
-            <p class="quote">"Ryan is so dynamic and students are having so much fun they don't even realize the learning that is happening."</p>
-            <p class="by">Jason Reid</p>
-            <p class="role">Principal</p>
-          </article>
-          <article class="card testimonial">
-            <p class="quote">"I normally can't focus on one thing for more than 10 seconds, but the way Ryan teaches with games and competitions keeps me so engaged!"</p>
-            <p class="by">Talia Greenstein</p>
-            <p class="role">Student</p>
-          </article>
+        <div class="t-carousel" data-t-carousel>
+          <div class="t-carousel-viewport">
+            <div class="t-carousel-track">
+              <article class="t-slide">
+                <p class="quote">Ryan brings a vitalizing good vibe to teaching that is truly contagious; the students feed off his energy and are encouraged to take risks and engage with difficult mathematical concepts.</p>
+                <p class="by">Erin Turner</p>
+                <p class="role">Sage Creek High School · Math Department Head</p>
+              </article>
+              <article class="t-slide">
+                <p class="quote">Ryan is so dynamic and students are having so much fun they don't even realize the learning that is happening.</p>
+                <p class="by">Jason Reid</p>
+                <p class="role">Principal</p>
+              </article>
+              <article class="t-slide">
+                <p class="quote">I normally can't focus on one thing for more than 10 seconds, but the way Ryan teaches with games and competitions keeps me so engaged!</p>
+                <p class="by">Talia Greenstein</p>
+                <p class="role">Student</p>
+              </article>
+            </div>
+          </div>
+          <div class="t-carousel-controls">
+            <button type="button" class="t-nav-btn t-nav-prev" aria-label="Previous testimonial">‹</button>
+            <div class="t-dots" data-t-dots></div>
+            <button type="button" class="t-nav-btn t-nav-next" aria-label="Next testimonial">›</button>
+          </div>
         </div>
       </div>
     </section>
@@ -1671,20 +2049,20 @@
         </div>
         <div class="faq-list">
           <div class="faq-item">
+            <h3>Should I take the SAT, ACT, or both?</h3>
+            <p>Most students benefit from focusing on one test rather than splitting prep time across both. The SAT and ACT test similar content but reward different strengths — choosing strategically can meaningfully raise your score. Take our <a href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">free 3-minute quiz</a> to get a personalized recommendation on which test fits you best.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is the SAT or ACT still important for college admissions?</h3>
+            <p>Yes — and increasingly so. Recent research shows that many prestigious universities, including Yale, Dartmouth, and MIT, have reinstated standardized testing requirements after going test-optional. While scores are still optional at many schools, a strong SAT or ACT score strengthens applications, unlocks merit scholarships, and signals readiness to admissions committees.</p>
+          </div>
+          <div class="faq-item">
             <h3>How much can my score improve?</h3>
-            <p>Most students improve 120–200 points, depending on their starting score and level of preparation.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Should I take the SAT or ACT?</h3>
-            <p>It depends on your strengths — the two tests reward different skills. The fastest way to find out which is right for you is to take our quick <a href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT vs ACT quiz</a>. It takes under 3 minutes and gives you a personalized recommendation.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Is the SAT still important for college admissions?</h3>
-            <p>Even though many colleges are test optional, strong SAT or ACT scores still significantly strengthen applications and scholarship opportunities.</p>
+            <p>SAT scores typically improve 100–250 points, and ACT scores 2–4 points — but results vary based on your starting score, how much you engage during sessions, and your commitment to independent practice outside of McPrep courses.</p>
           </div>
           <div class="faq-item">
             <h3>Who is this program best for?</h3>
-            <p>Motivated students who want to maximize their score and improve their college admissions opportunities.</p>
+            <p>Students in 10th or 11th grade who want to maximize their score without spending months in prep. Especially effective for students who struggle to stay focused in traditional tutoring — our gamified format is built for exactly that.</p>
           </div>
         </div>
       </div>
@@ -1718,6 +2096,159 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    (function () {
+      var header = document.querySelector("header");
+      var btn = document.querySelector(".nav-burger");
+      if (!header || !btn) return;
+      var links = document.querySelectorAll("#primary-nav-list a");
+      function setNavOpen(open) {
+        header.classList.toggle("nav-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setNavOpen(!header.classList.contains("nav-open"));
+      });
+      links.forEach(function (a) {
+        a.addEventListener("click", function () {
+          setNavOpen(false);
+        });
+      });
+    })();
+
+    (function () {
+      var items = document.querySelectorAll("[data-pricing-acc]");
+      if (!items.length) return;
+      function closeItem(item) {
+        item.classList.remove("is-open");
+        var b = item.querySelector(".pricing-acc-toggle");
+        var body = item.querySelector(".pricing-acc-body");
+        if (b) b.setAttribute("aria-expanded", "false");
+        if (body) body.setAttribute("aria-hidden", "true");
+      }
+      function openItem(item) {
+        item.classList.add("is-open");
+        var b = item.querySelector(".pricing-acc-toggle");
+        var body = item.querySelector(".pricing-acc-body");
+        if (b) b.setAttribute("aria-expanded", "true");
+        if (body) body.setAttribute("aria-hidden", "false");
+      }
+      items.forEach(function (item) {
+        var toggle = item.querySelector(".pricing-acc-toggle");
+        if (!toggle) return;
+        toggle.addEventListener("click", function () {
+          var willOpen = !item.classList.contains("is-open");
+          items.forEach(closeItem);
+          if (willOpen) openItem(item);
+        });
+      });
+    })();
+
+    (function () {
+      var root = document.querySelector("[data-t-carousel]");
+      if (!root) return;
+      var track = root.querySelector(".t-carousel-track");
+      var slides = root.querySelectorAll(".t-slide");
+      var prev = root.querySelector(".t-nav-prev");
+      var next = root.querySelector(".t-nav-next");
+      var dotsHost = root.querySelector("[data-t-dots]");
+      var viewport = root.querySelector(".t-carousel-viewport");
+      var n = slides.length;
+      if (!track || !dotsHost || !n) return;
+      var idx = 0;
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var autoMs = reducedMotion ? 0 : 6500;
+      var timer = null;
+
+      root.style.setProperty("--t-slide-count", String(n));
+
+      function go(to) {
+        idx = (to + n) % n;
+        var pct = (100 / n) * idx;
+        track.style.transform = "translateX(-" + pct + "%)";
+        dotsHost.querySelectorAll(".t-dot").forEach(function (d, di) {
+          d.setAttribute("aria-current", di === idx ? "true" : "false");
+        });
+      }
+
+      function buildDots() {
+        dotsHost.innerHTML = "";
+        for (var j = 0; j < n; j++) {
+          (function (ji) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "t-dot";
+            dot.setAttribute("aria-label", "Show testimonial " + (ji + 1));
+            dot.addEventListener("click", function () {
+              go(ji);
+              restartAuto();
+            });
+            dotsHost.appendChild(dot);
+          })(j);
+        }
+        go(0);
+      }
+
+      function restartAuto() {
+        if (!autoMs) return;
+        clearInterval(timer);
+        timer = setInterval(function () {
+          go(idx + 1);
+        }, autoMs);
+      }
+
+      function stopAuto() {
+        clearInterval(timer);
+      }
+
+      buildDots();
+      if (prev) prev.addEventListener("click", function () { go(idx - 1); restartAuto(); });
+      if (next) next.addEventListener("click", function () { go(idx + 1); restartAuto(); });
+
+      var touchStartX = null;
+      if (viewport) {
+        viewport.addEventListener(
+          "touchstart",
+          function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          { passive: true }
+        );
+        viewport.addEventListener(
+          "touchend",
+          function (e) {
+            if (touchStartX == null) return;
+            var dx = e.changedTouches[0].screenX - touchStartX;
+            if (dx > 48) go(idx - 1);
+            else if (dx < -48) go(idx + 1);
+            touchStartX = null;
+            restartAuto();
+          },
+          { passive: true }
+        );
+        viewport.addEventListener("mouseenter", stopAuto);
+        viewport.addEventListener("mouseleave", restartAuto);
+      }
+
+      if (autoMs) restartAuto();
+
+      if (reducedMotion) {
+        root.classList.add("is-visible");
+      } else if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) root.classList.add("is-visible");
+            });
+          },
+          { threshold: 0.15 }
+        );
+        io.observe(root);
+      } else {
+        root.classList.add("is-visible");
+      }
+    })();
 
     (function () {
       var steps = document.querySelectorAll("[data-curr-step]");
