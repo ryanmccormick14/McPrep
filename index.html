@@ -698,6 +698,31 @@
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
     }
 
+    .welcome-video-frame {
+      max-width: 720px;
+      margin-inline: auto;
+      width: 100%;
+    }
+
+    .welcome-video-aspect {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+      background: #0f172a;
+    }
+
+    .welcome-video-aspect iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     .section-head {
       max-width: 48ch;
       margin-bottom: 2.25rem;
@@ -1731,6 +1756,26 @@
           <span class="lb-float one" aria-hidden="true">+120 XP</span>
           <span class="lb-float two" aria-hidden="true">+150 XP</span>
           <span class="lb-float three" aria-hidden="true">LEVEL ↑</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome-video-section" aria-labelledby="welcome-video-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="welcome-video-heading">Welcome to McPrep</h2>
+          <p>A quick note from your instructor</p>
+        </div>
+        <div class="welcome-video-frame">
+          <div class="welcome-video-aspect">
+            <iframe
+              src="https://www.loom.com/embed/fa5b38f15481472f97674df5035a2bf9"
+              title="Welcome to McPrep — a message from your instructor"
+              allowfullscreen
+              allow="fullscreen"
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
