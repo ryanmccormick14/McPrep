@@ -745,27 +745,10 @@
       position: relative;
       padding: clamp(3.25rem, 6.5vw, 4.75rem) 0;
       margin: 0;
-      background:
-        radial-gradient(1100px 520px at 18% -12%, rgba(99, 102, 241, 0.14), transparent 55%),
-        radial-gradient(900px 520px at 92% 8%, rgba(34, 211, 238, 0.12), transparent 52%),
-        linear-gradient(180deg, #f8fafc 0%, #eef2ff 38%, #ecfeff 100%);
-      border-top: 1px solid rgba(99, 102, 241, 0.22);
+      background: #f8f8f6;
+      border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.85),
-        0 18px 46px -34px rgba(15, 23, 42, 0.18);
-    }
-
-    .curriculum-band::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.55) 25%, rgba(34, 211, 238, 0.45) 55%, rgba(245, 158, 11, 0.35) 78%, transparent 100%);
-      opacity: 0.9;
-      pointer-events: none;
+      box-shadow: none;
     }
 
     .curriculum-band .wrap {
@@ -784,19 +767,14 @@
 
     #curriculum .section-head p {
       font-size: 1.05rem;
-      color: #475569;
+      color: var(--ink-muted);
     }
 
     .powered-card {
-      border-radius: 16px;
-      border: 1px solid rgba(99, 102, 241, 0.22);
-      background:
-        radial-gradient(900px 220px at 10% 0%, rgba(99, 102, 241, 0.22), transparent 52%),
-        radial-gradient(700px 260px at 100% 20%, rgba(34, 211, 238, 0.16), transparent 55%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 242, 255, 0.5) 100%);
-      box-shadow:
-        0 18px 46px -26px rgba(15, 23, 42, 0.35),
-        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: 0 6px 28px -20px rgba(15, 23, 42, 0.12);
       padding: 1.35rem 1.15rem;
       margin-bottom: 1.5rem;
       display: grid;
@@ -888,42 +866,19 @@
       left: 0.48rem;
       top: 0.55rem;
       bottom: 0.55rem;
-      width: 2px;
+      width: 1px;
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(99, 102, 241, 0.55), rgba(34, 211, 238, 0.32), rgba(245, 158, 11, 0.28));
+      background: #d8dee9;
     }
 
     .curr-step {
       position: relative;
-      border-radius: 16px;
-      border: 1px solid rgba(216, 222, 233, 0.95);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 242, 247, 0.5) 100%);
-      box-shadow: 0 12px 28px -22px rgba(15, 23, 42, 0.35);
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid var(--step-accent, var(--accent));
+      background: #ffffff;
+      box-shadow: 0 8px 30px -22px rgba(15, 23, 42, 0.14);
       overflow: hidden;
-    }
-
-    .curr-step::before {
-      content: "";
-      position: absolute;
-      left: -0.02rem;
-      top: 0;
-      bottom: 0;
-      width: 6px;
-      background: var(--step-accent, var(--accent));
-      opacity: 0.95;
-    }
-
-    .curr-step::after {
-      content: "";
-      position: absolute;
-      left: 0.18rem;
-      top: 1.15rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--step-accent, var(--accent));
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.95), 0 0 0 6px rgba(99, 102, 241, 0.15);
-      transform: translateX(-1.35rem);
     }
 
     .curr-step__toggle {
@@ -932,7 +887,7 @@
       background: transparent;
       color: inherit;
       cursor: pointer;
-      padding: 1.1rem 1.05rem 0.95rem 1.15rem;
+      padding: 1.25rem 1.25rem 0.85rem;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 0.85rem;
@@ -948,24 +903,23 @@
     }
 
     .curr-step__num {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(216, 222, 233, 0.95);
-      box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.35);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
       color: var(--step-accent, var(--accent));
     }
 
     .curr-step__title {
       margin: 0;
-      font-size: 1.02rem;
-      font-weight: 900;
+      font-size: 1.05rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--ink);
     }
@@ -982,7 +936,7 @@
     }
 
     .curr-step__body {
-      padding: 0 1.15rem 1.15rem;
+      padding: 0 1.25rem 1.25rem;
       max-height: 0;
       opacity: 0;
       overflow: hidden;
@@ -995,25 +949,32 @@
     }
 
     .curr-step__body ul {
-      margin: 0.2rem 0 0;
-      padding-left: 1.1rem;
-      color: var(--ink-muted);
+      margin: 0.15rem 0 0;
+      padding-left: 1.2rem;
+      color: #334155;
+      font-size: 0.97rem;
+      line-height: 1.45;
     }
 
     .curr-step__body li {
-      margin: 0.4rem 0;
+      margin: 0.45rem 0;
+    }
+
+    .curr-step__body li::marker {
+      color: var(--step-accent, var(--accent));
     }
 
     .curr-practice {
       margin: 0.35rem 0 0.35rem;
       border-radius: 14px;
-      border: 2px dashed rgba(99, 102, 241, 0.28);
-      background: rgba(238, 242, 255, 0.45);
-      padding: 0.9rem 1.05rem;
+      border: 1px dashed #cbd5e1;
+      background: #ffffff;
+      padding: 0.95rem 1.1rem;
       color: #334155;
       font-weight: 600;
       font-size: 0.95rem;
       position: relative;
+      box-shadow: 0 4px 20px -18px rgba(15, 23, 42, 0.1);
     }
 
     .curr-practice::before {
@@ -1028,18 +989,19 @@
     }
 
     .curr-milestone {
-      border-radius: 18px;
-      border: 2px solid rgba(245, 158, 11, 0.35);
-      background:
-        radial-gradient(700px 220px at 10% 0%, rgba(245, 158, 11, 0.16), transparent 52%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(254, 243, 199, 0.35) 100%);
-      padding: 1.15rem 1.15rem 1.15rem 1.2rem;
-      box-shadow: 0 16px 42px -26px rgba(245, 158, 11, 0.55);
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #f59e0b;
+      background: #ffffff;
+      padding: 1.25rem 1.25rem;
+      box-shadow: 0 8px 30px -22px rgba(15, 23, 42, 0.14);
     }
 
     .curr-milestone h3 {
-      margin: 0 0 0.35rem;
-      font-size: 1.05rem;
+      margin: 0 0 0.5rem;
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--ink);
       display: flex;
       align-items: center;
       gap: 0.55rem;
@@ -1060,7 +1022,8 @@
 
     .curr-milestone p {
       margin: 0;
-      color: var(--ink-muted);
+      color: #334155;
+      font-size: 0.97rem;
       line-height: 1.6;
     }
 
@@ -1400,133 +1363,74 @@
 
     #programs .pricing-cards {
       margin-top: 0;
+      align-items: stretch;
     }
 
     #programs .pricing-card {
       position: relative;
-      height: auto;
-      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+      padding: 1.35rem 1.25rem;
+      border: 1px solid #e2e8f0;
       border-top: 3px solid var(--pricing-accent, var(--line));
+      background: #ffffff;
+      box-shadow: 0 6px 28px -22px rgba(15, 23, 42, 0.1);
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     #programs .pricing-card:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 10px 28px -12px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 12px 32px -20px rgba(15, 23, 42, 0.12);
     }
 
     #programs .pricing-card--pay {
       --pricing-accent: #0ea5e9;
-      background: linear-gradient(180deg, rgba(224, 242, 254, 0.55) 0%, var(--surface) 42%);
-      border: 1px solid #bae6fd;
-      border-top: 3px solid #0ea5e9;
-    }
-
-    #programs .pricing-card--pay:hover {
-      border-color: #7dd3fc;
     }
 
     #programs .pricing-card--obligation {
       --pricing-accent: #8b5cf6;
-      background: linear-gradient(180deg, rgba(237, 233, 254, 0.55) 0%, var(--surface) 42%);
-      border: 1px solid #ddd6fe;
-      border-top: 3px solid #8b5cf6;
-    }
-
-    #programs .pricing-card--obligation:hover {
-      border-color: #c4b5fd;
     }
 
     #programs .pricing-card--featured {
-      border: 2px solid #6ee7b7;
-      background: linear-gradient(165deg, #ecfdf5 0%, #f8fafc 42%, var(--surface) 100%);
-      box-shadow: 0 14px 36px -16px rgba(16, 185, 129, 0.28);
+      --pricing-accent: #10b981;
     }
 
-    #programs .pricing-card--featured:hover {
-      border-color: #34d399;
-    }
-
-    #programs .pricing-badge {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #047857;
-      background: rgba(209, 250, 229, 0.95);
-      border: 1px solid #a7f3d0;
-      padding: 0.32rem 0.6rem;
-      border-radius: 999px;
-      margin-bottom: 0;
-      flex-shrink: 0;
-    }
-
-    #programs .pricing-acc-toggle {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.85rem;
-      align-items: center;
-      text-align: left;
-      padding: 1.15rem 1.15rem;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      font: inherit;
-      color: inherit;
-    }
-
-    #programs .pricing-acc-toggle:focus-visible {
-      outline: 2px solid var(--accent-bright);
-      outline-offset: -2px;
-    }
-
-    #programs .pricing-acc-head {
+    #programs .pricing-card-title {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.45rem;
-      min-width: 0;
-    }
-
-    #programs .pricing-acc-title {
+      align-items: center;
+      gap: 0.55rem;
       font-size: 1.07rem;
-      margin: 0;
+      margin: 0 0 0.85rem;
       font-weight: 800;
       color: var(--ink);
       letter-spacing: -0.02em;
       line-height: 1.25;
     }
 
-    #programs .pricing-acc-chev {
-      font-size: 1.15rem;
-      font-weight: 900;
-      color: #64748b;
-      transition: transform 0.2s ease;
-      line-height: 1;
+    #programs .pricing-title-glyph {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: transparent;
     }
 
-    #programs .pricing-acc-item.is-open .pricing-acc-chev {
-      transform: rotate(180deg);
+    #programs .pricing-card--featured .pricing-title-glyph {
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
     }
 
-    #programs .pricing-acc-body {
-      padding: 0 1.15rem 1.15rem;
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.32s ease, opacity 0.22s ease;
+    #programs .pricing-card-title-text {
+      flex: 1;
+      min-width: 0;
     }
 
-    #programs .pricing-acc-item.is-open .pricing-acc-body {
-      max-height: 320px;
-      opacity: 1;
-    }
-
-    #programs .pricing-acc-body p {
+    #programs .pricing-card p {
       margin: 0;
-      color: var(--ink-muted);
+      flex: 1 1 auto;
+      color: #334155;
       font-size: 0.95rem;
       line-height: 1.55;
     }
@@ -1887,39 +1791,26 @@
             <h3>How pricing works</h3>
           </div>
           <div class="cards pricing-cards">
-            <article class="card pricing-card pricing-card--featured pricing-acc-item" data-pricing-acc>
-              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
-                <span class="pricing-acc-head">
-                  <span class="pricing-badge">Free first session</span>
-                  <span class="pricing-acc-title">First class is free</span>
-                </span>
-                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
-              </button>
-              <div class="pricing-acc-body" aria-hidden="true">
-                <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
-              </div>
+            <article class="card pricing-card pricing-card--featured">
+              <h3 class="pricing-card-title">
+                <span class="pricing-title-glyph" aria-hidden="true"></span>
+                <span class="pricing-card-title-text">First class is free</span>
+              </h3>
+              <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
             </article>
-            <article class="card pricing-card pricing-card--pay pricing-acc-item" data-pricing-acc>
-              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
-                <span class="pricing-acc-head">
-                  <span class="pricing-acc-title">Pay only if you continue</span>
-                </span>
-                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
-              </button>
-              <div class="pricing-acc-body" aria-hidden="true">
-                <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
-              </div>
+            <article class="card pricing-card pricing-card--pay">
+              <h3 class="pricing-card-title">
+                <span class="pricing-title-glyph" aria-hidden="true"></span>
+                <span class="pricing-card-title-text">Pay only if you continue</span>
+              </h3>
+              <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
             </article>
-            <article class="card pricing-card pricing-card--obligation pricing-acc-item" data-pricing-acc>
-              <button class="pricing-acc-toggle" type="button" aria-expanded="false">
-                <span class="pricing-acc-head">
-                  <span class="pricing-acc-title">No obligation, ever</span>
-                </span>
-                <span class="pricing-acc-chev" aria-hidden="true">⌄</span>
-              </button>
-              <div class="pricing-acc-body" aria-hidden="true">
-                <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
-              </div>
+            <article class="card pricing-card pricing-card--obligation">
+              <h3 class="pricing-card-title">
+                <span class="pricing-title-glyph" aria-hidden="true"></span>
+                <span class="pricing-card-title-text">No obligation, ever</span>
+              </h3>
+              <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
             </article>
           </div>
         </div>
@@ -2113,34 +2004,6 @@
       links.forEach(function (a) {
         a.addEventListener("click", function () {
           setNavOpen(false);
-        });
-      });
-    })();
-
-    (function () {
-      var items = document.querySelectorAll("[data-pricing-acc]");
-      if (!items.length) return;
-      function closeItem(item) {
-        item.classList.remove("is-open");
-        var b = item.querySelector(".pricing-acc-toggle");
-        var body = item.querySelector(".pricing-acc-body");
-        if (b) b.setAttribute("aria-expanded", "false");
-        if (body) body.setAttribute("aria-hidden", "true");
-      }
-      function openItem(item) {
-        item.classList.add("is-open");
-        var b = item.querySelector(".pricing-acc-toggle");
-        var body = item.querySelector(".pricing-acc-body");
-        if (b) b.setAttribute("aria-expanded", "true");
-        if (body) body.setAttribute("aria-hidden", "false");
-      }
-      items.forEach(function (item) {
-        var toggle = item.querySelector(".pricing-acc-toggle");
-        if (!toggle) return;
-        toggle.addEventListener("click", function () {
-          var willOpen = !item.classList.contains("is-open");
-          items.forEach(closeItem);
-          if (willOpen) openItem(item);
         });
       });
     })();
