@@ -772,13 +772,14 @@
 
     .powered-card {
       border-radius: 14px;
-      border: 1px solid var(--line);
-      background: #ffffff;
-      box-shadow: 0 6px 28px -20px rgba(15, 23, 42, 0.12);
+      border: none;
+      background: linear-gradient(135deg, #1a56db 0%, #0e3fa6 100%);
+      box-shadow: 0 10px 36px -20px rgba(14, 63, 166, 0.55);
       padding: 1.35rem 1.15rem;
       margin-bottom: 1.5rem;
       display: grid;
       gap: 0.85rem;
+      color: #ffffff;
     }
 
     @media (min-width: 740px) {
@@ -797,7 +798,7 @@
       font-weight: 800;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: #334155;
+      color: rgba(255, 255, 255, 0.88);
     }
 
     .powered-card .powered-kicker::before {
@@ -805,19 +806,30 @@
       width: 10px;
       height: 10px;
       border-radius: 999px;
-      background: linear-gradient(180deg, var(--accent-bright), var(--cyan));
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
     }
 
     .powered-card h3 {
       margin: 0.25rem 0 0.35rem;
       font-size: 1.2rem;
       letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .powered-card h3 a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .powered-card h3 a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
     }
 
     .powered-card p {
       margin: 0;
-      color: var(--ink-muted);
+      color: rgba(255, 255, 255, 0.92);
       font-size: 0.97rem;
       line-height: 1.6;
       max-width: 72ch;
@@ -834,20 +846,23 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 0.65rem 1.05rem;
+      padding: 0.65rem 1.1rem;
       border-radius: 999px;
       font-weight: 800;
       font-size: 0.9rem;
-      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-      color: #fff;
-      box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.92);
+      box-shadow: none;
+      text-decoration: none;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
     }
 
     .powered-card .powered-btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.05);
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.14);
+      border-color: #ffffff;
+      text-decoration: none;
     }
 
     .curriculum-grid {
@@ -871,14 +886,49 @@
       background: #d8dee9;
     }
 
+    .curr-step--1 {
+      --card-border: #1a56db;
+      --pill-bg: #e8f0fe;
+      --pill-text: #1a56db;
+      --step-accent: #1a56db;
+    }
+
+    .curr-step--2 {
+      --card-border: #5b21b6;
+      --pill-bg: #f0edff;
+      --pill-text: #5b21b6;
+      --step-accent: #5b21b6;
+    }
+
+    .curr-step--3 {
+      --card-border: #0d7a5f;
+      --pill-bg: #e6f7f1;
+      --pill-text: #0d7a5f;
+      --step-accent: #0d7a5f;
+    }
+
     .curr-step {
       position: relative;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      border-top: 3px solid var(--step-accent, var(--accent));
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      border-top: 3px solid var(--card-border, #1a56db);
       background: #ffffff;
-      box-shadow: 0 8px 30px -22px rgba(15, 23, 42, 0.14);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       overflow: hidden;
+      padding: 1.5rem;
+    }
+
+    .curr-step__pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.38rem 0.72rem;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      margin-bottom: 0.85rem;
     }
 
     .curr-step__toggle {
@@ -887,7 +937,7 @@
       background: transparent;
       color: inherit;
       cursor: pointer;
-      padding: 1.25rem 1.25rem 0.85rem;
+      padding: 0 0 0.35rem;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 0.85rem;
@@ -896,7 +946,7 @@
     }
 
     .curr-step__toggle:hover .curr-step__title {
-      color: var(--accent-hover);
+      color: #0f172a;
       text-decoration: underline;
       text-underline-offset: 0.18em;
       text-decoration-thickness: 1px;
@@ -919,9 +969,9 @@
     .curr-step__title {
       margin: 0;
       font-size: 1.05rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: #0f172a;
     }
 
     .curr-step__chev {
@@ -936,7 +986,7 @@
     }
 
     .curr-step__body {
-      padding: 0 1.25rem 1.25rem;
+      padding: 0;
       max-height: 0;
       opacity: 0;
       overflow: hidden;
@@ -949,11 +999,11 @@
     }
 
     .curr-step__body ul {
-      margin: 0.15rem 0 0;
+      margin: 0.2rem 0 0;
       padding-left: 1.2rem;
-      color: #334155;
-      font-size: 0.97rem;
-      line-height: 1.45;
+      color: #374151;
+      font-size: 0.9375rem;
+      line-height: 1.5;
     }
 
     .curr-step__body li {
@@ -966,15 +1016,17 @@
 
     .curr-practice {
       margin: 0.35rem 0 0.35rem;
-      border-radius: 14px;
-      border: 1px dashed #cbd5e1;
-      background: #ffffff;
-      padding: 0.95rem 1.1rem;
-      color: #334155;
+      border-radius: 8px;
+      border: none;
+      border-left: 3px solid #f59e0b;
+      background: #fffbeb;
+      padding: 0.75rem 1rem;
+      color: #78350f;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
       position: relative;
-      box-shadow: 0 4px 20px -18px rgba(15, 23, 42, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
 
     .curr-practice::before {
@@ -984,47 +1036,56 @@
       font-weight: 900;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: #475569;
+      color: #92400e;
       margin-bottom: 0.35rem;
     }
 
     .curr-milestone {
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      border-top: 3px solid #f59e0b;
-      background: #ffffff;
-      padding: 1.25rem 1.25rem;
-      box-shadow: 0 8px 30px -22px rgba(15, 23, 42, 0.14);
+      border-radius: 12px;
+      border: none;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1.5rem;
+      box-shadow: 0 12px 40px -24px rgba(15, 23, 42, 0.45);
     }
 
     .curr-milestone h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.08rem;
-      font-weight: 800;
-      color: var(--ink);
+      margin: 0 0 0.65rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .curr-milestone h3 .trophy {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(245, 158, 11, 0.16);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      color: #b45309;
+    .curr-milestone__icon {
+      color: #f59e0b;
       font-weight: 900;
+      font-size: 1.15rem;
+      line-height: 1;
     }
 
     .curr-milestone p {
       margin: 0;
-      color: #334155;
-      font-size: 0.97rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.9375rem;
       line-height: 1.6;
+    }
+
+    @media (max-width: 639px) {
+      .curriculum-timeline {
+        padding-left: 0;
+      }
+
+      .curriculum-timeline::before {
+        display: none;
+      }
+
+      .curr-step {
+        padding: 1.25rem;
+      }
     }
 
     .instructor-photo-wrap {
@@ -1838,7 +1899,8 @@
         </div>
 
         <div class="curriculum-grid curriculum-timeline">
-          <article class="curr-step" style="--step-accent: var(--accent);" data-curr-step>
+          <article class="curr-step curr-step--1" data-curr-step>
+            <span class="curr-step__pill">Class 1</span>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
               <span class="curr-step__num">1</span>
               <span class="curr-step__title">Test Overview &amp; Math: Algebra</span>
@@ -1856,7 +1918,8 @@
 
           <div class="curr-practice">Students complete assigned practice problems covering Algebra and Advanced Math to reinforce session concepts.</div>
 
-          <article class="curr-step" style="--step-accent: #06b6d4;" data-curr-step>
+          <article class="curr-step curr-step--2" data-curr-step>
+            <span class="curr-step__pill">Class 2</span>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
               <span class="curr-step__num">2</span>
               <span class="curr-step__title">Math: Data, Geometry &amp; Trigonometry</span>
@@ -1873,7 +1936,8 @@
 
           <div class="curr-practice">Students complete assigned practice problems covering Data Analysis, Geometry, and Trigonometry.</div>
 
-          <article class="curr-step" style="--step-accent: #f59e0b;" data-curr-step>
+          <article class="curr-step curr-step--3" data-curr-step>
+            <span class="curr-step__pill">Class 3</span>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
               <span class="curr-step__num">3</span>
               <span class="curr-step__title">Reading, Writing &amp; (ACT) Science</span>
@@ -1888,7 +1952,7 @@
           </article>
 
           <div class="curr-milestone">
-            <h3><span class="trophy" aria-hidden="true">🏆</span>Full-Length Practice Test</h3>
+            <h3><span class="curr-milestone__icon" aria-hidden="true">✓</span> Full-Length Practice Test</h3>
             <p>
               After completing all 3 sessions, students are assigned a full-length official practice test. We cover how to simulate real testing conditions — proper timing, minimizing distractions, and building the focus and stamina the test demands. This is your dress rehearsal.
             </p>
