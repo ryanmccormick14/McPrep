@@ -1120,54 +1120,58 @@
       color: var(--step-accent, var(--accent));
     }
 
-    .curr-practice {
-      margin: 0.35rem 0 0.35rem;
+    .curr-step__body > p {
+      margin: 0;
+      color: #334155;
+      font-size: 0.97rem;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .curr-step.curr-step--practice {
+      margin: 0.35rem 0;
       border-radius: 14px;
       border: 1px dashed #cbd5e1;
+      border-top: 3px solid var(--step-accent, var(--accent));
       background: #ffffff;
-      padding: 0.95rem 1.1rem;
-      color: #334155;
-      font-weight: 600;
-      font-size: 0.95rem;
-      position: relative;
       box-shadow: 0 4px 20px -18px rgba(15, 23, 42, 0.1);
     }
 
-    .curr-practice::before {
-      content: "Practice assignment";
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 900;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: #475569;
-      margin-bottom: 0.35rem;
+    .curr-step.curr-step--practice.curr-step--1 {
+      background: #faf5ff;
     }
 
-    .curr-milestone {
+    .curr-step.curr-step--practice.curr-step--2 {
+      background: #f0fdfa;
+    }
+
+    .curr-step.curr-step--milestone {
+      margin-top: 0.35rem;
       border-radius: 14px;
       border: 1px solid #fecaca;
       border-top: 3px solid #f87171;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, transparent 38%),
         linear-gradient(165deg, #fef2f2 0%, #fff1f2 45%, #ffe4e6 100%);
-      padding: 1.25rem 1.25rem;
       box-shadow: 0 8px 32px -22px rgba(239, 68, 68, 0.22);
     }
 
-    .curr-milestone h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.08rem;
-      font-weight: 800;
-      color: var(--ink);
+    .curr-step.curr-step--milestone .curr-step__num {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.28);
+      color: #dc2626;
+    }
+
+    .curr-step.curr-step--milestone .curr-step__title {
       display: flex;
       align-items: center;
       gap: 0.55rem;
     }
 
-    .curr-milestone h3 .trophy {
+    .curr-step.curr-step--milestone .curr-step__title-trophy {
       width: 32px;
       height: 32px;
+      flex-shrink: 0;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
@@ -1176,12 +1180,11 @@
       border: 1px solid rgba(239, 68, 68, 0.28);
       color: #dc2626;
       font-weight: 900;
+      font-size: 1rem;
     }
 
-    .curr-milestone p {
-      margin: 0;
-      color: #334155;
-      font-size: 0.97rem;
+    .curr-step.curr-step--milestone .curr-step__body > p {
+      font-weight: 400;
       line-height: 1.6;
     }
 
@@ -2456,7 +2459,16 @@
             </div>
           </article>
 
-          <div class="curr-practice">Students complete assigned practice problems covering Algebra and Advanced Math to reinforce session concepts.</div>
+          <article class="curr-step curr-step--practice curr-step--1" style="--step-accent: var(--accent);" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">Practice</span>
+              <span class="curr-step__title">Practice assignment</span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <p>Students complete assigned practice problems covering Algebra and Advanced Math to reinforce session concepts.</p>
+            </div>
+          </article>
 
           <article class="curr-step curr-step--2" style="--step-accent: #06b6d4;" data-curr-step>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
@@ -2473,7 +2485,16 @@
             </div>
           </article>
 
-          <div class="curr-practice">Students complete assigned practice problems covering Data Analysis, Geometry, and Trigonometry.</div>
+          <article class="curr-step curr-step--practice curr-step--2" style="--step-accent: #06b6d4;" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">Practice</span>
+              <span class="curr-step__title">Practice assignment</span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <p>Students complete assigned practice problems covering Data Analysis, Geometry, and Trigonometry.</p>
+            </div>
+          </article>
 
           <article class="curr-step curr-step--3" style="--step-accent: #f59e0b;" data-curr-step>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
@@ -2489,12 +2510,21 @@
             </div>
           </article>
 
-          <div class="curr-milestone">
-            <h3><span class="trophy" aria-hidden="true">🏆</span>Full-Length Practice Test</h3>
-            <p>
-              After completing all 3 sessions, students are assigned a full-length official practice test. We cover how to simulate real testing conditions — proper timing, minimizing distractions, and building the focus and stamina the test demands. This is your dress rehearsal.
-            </p>
-          </div>
+          <article class="curr-step curr-step--milestone" style="--step-accent: #f87171;" data-curr-step>
+            <button class="curr-step__toggle" type="button" aria-expanded="false">
+              <span class="curr-step__num">Capstone</span>
+              <span class="curr-step__title">
+                <span class="curr-step__title-trophy" aria-hidden="true">🏆</span>
+                Full-Length Practice Test
+              </span>
+              <span class="curr-step__chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="curr-step__body" aria-hidden="true">
+              <p>
+                After completing all 3 sessions, students are assigned a full-length official practice test. We cover how to simulate real testing conditions — proper timing, minimizing distractions, and building the focus and stamina the test demands. This is your dress rehearsal.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
