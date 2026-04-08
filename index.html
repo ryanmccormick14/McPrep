@@ -738,22 +738,48 @@
       color: var(--ink-muted);
     }
 
-    .about-grid {
+    .instructor-top {
       display: grid;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: start;
     }
 
     @media (min-width: 800px) {
-      .about-grid {
-        grid-template-columns: 1fr 320px;
+      .instructor-top {
+        grid-template-columns: 45% 55%;
+        gap: clamp(1.5rem, 3vw, 2.75rem);
       }
     }
 
-    @media (min-width: 900px) {
-      .about-grid {
-        grid-template-columns: 1fr 380px;
-      }
+    #instructor .section-head--instructor {
+      max-width: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .instructor-loom {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .instructor-loom__aspect {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .instructor-loom__aspect iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #instructor .instructor-credentials {
+      margin-top: 2.5rem;
     }
 
     .about-text p {
@@ -793,6 +819,50 @@
     #curriculum .section-head p {
       font-size: 1.05rem;
       color: var(--ink-muted);
+    }
+
+    #curriculum-video {
+      background: #f4f5f2;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    #curriculum-video .section-head {
+      text-align: center;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+
+    #curriculum-video .section-head p {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--ink-muted);
+    }
+
+    .curriculum-video-loom {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .curriculum-video-loom__aspect {
+      position: relative;
+      padding-bottom: 62.5%;
+      height: 0;
+    }
+
+    .curriculum-video-loom__aspect iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .powered-card {
@@ -1074,41 +1144,6 @@
       line-height: 1.6;
     }
 
-    .instructor-photo-wrap {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      width: 100%;
-      max-width: 380px;
-      margin-inline: auto;
-    }
-
-    .instructor-photo-wrap .instructor-photo {
-      display: block;
-      width: min(160px, 100%);
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-      object-position: center center;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.95);
-      box-shadow:
-        0 12px 32px -10px rgba(15, 23, 42, 0.28),
-        0 0 0 1px rgba(216, 222, 233, 0.9);
-    }
-
-    @media (max-width: 799px) {
-      .about-grid .instructor-photo-wrap {
-        order: -1;
-        margin-bottom: 0.25rem;
-      }
-
-      .about-grid {
-        gap: 1.75rem;
-      }
-    }
-
     .credential-grid {
       display: grid;
       gap: 1rem;
@@ -1125,6 +1160,10 @@
       .credential-grid {
         grid-template-columns: repeat(4, 1fr);
       }
+    }
+
+    #instructor .credential-grid {
+      width: 100%;
     }
 
     .credential-card {
@@ -1388,9 +1427,10 @@
     }
 
     #programs .bootcamp-offer {
-      max-width: 680px;
-      margin: 0 auto 2rem;
-      padding: 2rem;
+      max-width: none;
+      width: 100%;
+      margin: 0 0 2rem;
+      padding: clamp(2rem, 3vw, 2.5rem);
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -1418,13 +1458,31 @@
 
     #programs .bootcamp-offer__pills li {
       margin: 0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--ink-muted);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 0.32rem 0.65rem;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0.35rem 0.9rem;
       border-radius: 999px;
+      border: none;
+    }
+
+    #programs .bootcamp-offer__pills li:nth-child(1) {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    #programs .bootcamp-offer__pills li:nth-child(2) {
+      background: #ede9fe;
+      color: #5b21b6;
+    }
+
+    #programs .bootcamp-offer__pills li:nth-child(3) {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    #programs .bootcamp-offer__pills li:nth-child(4) {
+      background: #ffedd5;
+      color: #9a3412;
     }
 
     #programs .bootcamp-offer__callouts {
@@ -1500,11 +1558,19 @@
       background: #ffffff;
       border: 1px solid #e5e7eb;
       border-radius: 12px;
-      transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      transition: all 0.2s ease;
     }
 
     #programs .bootcamp-date-card:hover .bootcamp-date-card__body {
-      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border-color: #4f46e5;
+    }
+
+    #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body:hover {
+      border-color: #64748b;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+      transform: translateY(-2px);
     }
 
     #programs .bootcamp-date-card__input:focus-visible + .bootcamp-date-card__body {
@@ -1517,6 +1583,12 @@
       background: #eef2ff;
       padding: calc(1rem - 1px);
       box-shadow: 0 2px 12px rgba(79, 70, 229, 0.12);
+      transform: none;
+    }
+
+    #programs .bootcamp-date-card__input:checked + .bootcamp-date-card__body:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body {
@@ -1652,6 +1724,12 @@
       border: 1px solid #a7f3d0;
     }
 
+    #programs .bootcamp-offer__price-muted {
+      color: #6b7280;
+      font-weight: 500;
+      font-size: 0.94rem;
+    }
+
     #programs .bootcamp-offer__cta-wrap {
       text-align: center;
     }
@@ -1698,97 +1776,6 @@
     #programs .bootcamp-offer__notify-link {
       font-weight: 800;
       font-size: 1.05rem;
-    }
-
-    #programs .pricing-cards {
-      margin-top: 0;
-      align-items: stretch;
-    }
-
-    #programs .pricing-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      margin: 0;
-      padding: 1.35rem 1.25rem;
-      border: 1px solid #e2e8f0;
-      border-top: 3px solid var(--pricing-accent, var(--line));
-      background: #ffffff;
-      box-shadow: 0 6px 28px -22px rgba(15, 23, 42, 0.1);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    #programs .pricing-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 12px 32px -20px rgba(15, 23, 42, 0.12);
-    }
-
-    #programs .pricing-card--pay {
-      --pricing-accent: #0ea5e9;
-    }
-
-    #programs .pricing-card--obligation {
-      --pricing-accent: #8b5cf6;
-    }
-
-    #programs .pricing-card--featured {
-      --pricing-accent: #10b981;
-    }
-
-    #programs .pricing-card-title {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 1.07rem;
-      margin: 0 0 0.85rem;
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-
-    #programs .pricing-title-glyph {
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: transparent;
-    }
-
-    #programs .pricing-card--featured .pricing-title-glyph {
-      background: #10b981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
-    }
-
-    #programs .pricing-card-title-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    #programs .pricing-card p {
-      margin: 0;
-      flex: 1 1 auto;
-      color: #334155;
-      font-size: 0.95rem;
-      line-height: 1.55;
-    }
-
-    .programs-pricing-block {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: none;
-    }
-
-    .programs-pricing-block .pricing-head {
-      margin-bottom: 1.35rem;
-    }
-
-    .programs-pricing-block .pricing-head h3 {
-      font-size: clamp(1.25rem, 2.6vw, 1.5rem);
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.03em;
     }
 
     .faq-list {
@@ -2074,65 +2061,69 @@
 
     <section class="alt" id="instructor">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Meet Your Instructor</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              Hi, I'm Ryan McCormick - a high school math teacher in San Diego and the founder of McPrep.
-            </p>
-            <p>
-              My mission is simple: make learning engaging, competitive, and actually enjoyable.
-            </p>
-            <p>
-              Today's students are used to constant stimulation and fast feedback, yet most instruction hasn't adapted. As a result, focus drops and motivation fades quickly. I've built my teaching style around this reality.
-            </p>
-            <p>
-              Through gamified lessons, team-based challenges, and bite-sized SAT/ACT strategies, I create an environment where students stay engaged, compete, and improve quickly. The result is simple - more focus, more confidence, and better scores.
-            </p>
-            <div class="credential-grid">
-              <div class="credential-card">
-                <span class="cred-accent" aria-hidden="true"></span>
-                <div class="cred-body">
-                  <strong>UC Berkeley Business &amp; Engineering Graduate</strong>
-                  <span class="cred-sub">Academic foundation you can trust</span>
-                </div>
-              </div>
-              <div class="credential-card">
-                <span class="cred-accent" aria-hidden="true"></span>
-                <div class="cred-body">
-                  <strong>99th Percentile SAT &amp; ACT</strong>
-                  <span class="cred-sub">Proven test mastery</span>
-                </div>
-              </div>
-              <div class="credential-card">
-                <span class="cred-accent" aria-hidden="true"></span>
-                <div class="cred-body">
-                  <strong>10+ Years Tutoring Experience</strong>
-                  <span class="cred-sub">Consistent, repeatable results</span>
-                </div>
-              </div>
-              <div class="credential-card">
-                <span class="cred-accent" aria-hidden="true"></span>
-                <div class="cred-body">
-                  <strong>High School Math Teacher</strong>
-                  <span class="cred-sub">Real classroom experience</span>
-                </div>
+        <div class="instructor-top">
+          <div class="instructor-top__text">
+            <div class="section-head section-head--instructor">
+              <h2>Meet Your Instructor</h2>
+            </div>
+            <div class="about-text">
+              <p>
+                Hi, I'm Ryan McCormick - a high school math teacher in San Diego and the founder of McPrep.
+              </p>
+              <p>
+                My mission is simple: make learning engaging, competitive, and actually enjoyable.
+              </p>
+              <p>
+                Today's students are used to constant stimulation and fast feedback, yet most instruction hasn't adapted. As a result, focus drops and motivation fades quickly. I've built my teaching style around this reality.
+              </p>
+              <p>
+                Through gamified lessons, team-based challenges, and bite-sized SAT/ACT strategies, I create an environment where students stay engaged, compete, and improve quickly. The result is simple - more focus, more confidence, and better scores.
+              </p>
+            </div>
+          </div>
+          <div class="instructor-top__video">
+            <div class="instructor-loom">
+              <div class="instructor-loom__aspect">
+                <iframe
+                  src="https://www.loom.com/embed/a7086b8d6dcf422cb3027c3210ca0403"
+                  title="Meet your instructor — introduction video"
+                  allowfullscreen
+                  allow="fullscreen"
+                  loading="lazy"
+                ></iframe>
               </div>
             </div>
           </div>
-          <figure class="instructor-photo-wrap">
-            <img
-              class="instructor-photo"
-              src="images/ryan.jpg"
-              alt="Ryan McCormick, founder of McPrep"
-              width="160"
-              height="160"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
+        </div>
+        <div class="credential-grid instructor-credentials">
+          <div class="credential-card">
+            <span class="cred-accent" aria-hidden="true"></span>
+            <div class="cred-body">
+              <strong>UC Berkeley Business &amp; Engineering Graduate</strong>
+              <span class="cred-sub">Academic foundation you can trust</span>
+            </div>
+          </div>
+          <div class="credential-card">
+            <span class="cred-accent" aria-hidden="true"></span>
+            <div class="cred-body">
+              <strong>99th Percentile SAT &amp; ACT</strong>
+              <span class="cred-sub">Proven test mastery</span>
+            </div>
+          </div>
+          <div class="credential-card">
+            <span class="cred-accent" aria-hidden="true"></span>
+            <div class="cred-body">
+              <strong>10+ Years Tutoring Experience</strong>
+              <span class="cred-sub">Consistent, repeatable results</span>
+            </div>
+          </div>
+          <div class="credential-card">
+            <span class="cred-accent" aria-hidden="true"></span>
+            <div class="cred-body">
+              <strong>High School Math Teacher</strong>
+              <span class="cred-sub">Real classroom experience</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2143,7 +2134,7 @@
           <h2>Programs</h2>
         </div>
         <div class="bootcamp-offer" data-bootcamp-offer>
-          <h3 class="bootcamp-offer__title">SAT / ACT Boot Camp</h3>
+          <h3 class="bootcamp-offer__title">SAT / ACT Prep Courses</h3>
           <ul class="bootcamp-offer__pills" aria-label="Boot camp format">
             <li>3 sessions</li>
             <li>2 hrs each</li>
@@ -2208,9 +2199,10 @@
             <div class="bootcamp-offer__price-row">
               <span>First class</span>
               <span class="bootcamp-offer__price-badge">FREE</span>
+              <span class="bootcamp-offer__price-muted">· no commitment</span>
             </div>
             <div class="bootcamp-offer__price-row">
-              <span>Continue after session 1?</span>
+              <span>Pay only if you continue</span>
               <span>$160 total · $40/hr · 2 hrs/session · pay via Venmo or Zelle</span>
             </div>
           </div>
@@ -2228,34 +2220,6 @@
           </div>
           <div class="bootcamp-offer__notify-only" data-bootcamp-notify-panel hidden>
             <a class="bootcamp-offer__notify-link" href="mailto:ryan@mcprep.academy">Notify me when available</a>
-          </div>
-        </div>
-        <div class="programs-pricing-block" id="how-pricing">
-          <div class="pricing-head">
-            <h3>How pricing works</h3>
-          </div>
-          <div class="cards pricing-cards">
-            <article class="card pricing-card pricing-card--featured">
-              <h3 class="pricing-card-title">
-                <span class="pricing-title-glyph" aria-hidden="true"></span>
-                <span class="pricing-card-title-text">First class is free</span>
-              </h3>
-              <p>Your first session is completely free — no payment, no commitment. Come to class, see if it’s a good fit, and decide from there.</p>
-            </article>
-            <article class="card pricing-card pricing-card--pay">
-              <h3 class="pricing-card-title">
-                <span class="pricing-title-glyph" aria-hidden="true"></span>
-                <span class="pricing-card-title-text">Pay only if you continue</span>
-              </h3>
-              <p>After the first session, tuition for the remaining 2 classes is $160 total ($40/hr · 2 hrs per session). Payment is due before session 2 through Venmo or Zelle.</p>
-            </article>
-            <article class="card pricing-card pricing-card--obligation">
-              <h3 class="pricing-card-title">
-                <span class="pricing-title-glyph" aria-hidden="true"></span>
-                <span class="pricing-card-title-text">No obligation, ever</span>
-              </h3>
-              <p>Not the right fit? No problem. If you decide not to continue after the first session, simply don’t pay and don’t show up — no awkward conversations, no cancellation fees, no hard feelings.</p>
-            </article>
           </div>
         </div>
       </div>
@@ -2336,6 +2300,28 @@
             <p>
               After completing all 3 sessions, students are assigned a full-length official practice test. We cover how to simulate real testing conditions — proper timing, minimizing distractions, and building the focus and stamina the test demands. This is your dress rehearsal.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="curriculum-video" aria-labelledby="curriculum-video-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="curriculum-video-heading">See It in Action</h2>
+          <p>
+            A walkthrough of what a McPrep session looks like — live software, real strategies, and the gamified tools we use every class.
+          </p>
+        </div>
+        <div class="curriculum-video-loom">
+          <div class="curriculum-video-loom__aspect">
+            <iframe
+              src="https://www.loom.com/embed/dad37061c14b4287a83f87a4935aab62"
+              title="McPrep session walkthrough"
+              allowfullscreen
+              allow="fullscreen"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
