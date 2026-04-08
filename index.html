@@ -1128,13 +1128,16 @@
       font-weight: 600;
     }
 
-    .curr-step.curr-step--practice {
-      margin: 0.35rem 0;
+    .curr-step.curr-step--practice,
+    .curr-step.curr-step--milestone {
+      margin: 0.4rem 0;
       border-radius: 14px;
-      border: 1px dashed #cbd5e1;
-      border-top: 3px solid var(--step-accent, var(--accent));
-      background: #ffffff;
+      border: 1.5px dashed var(--step-accent, var(--accent));
       box-shadow: 0 4px 20px -18px rgba(15, 23, 42, 0.1);
+    }
+
+    .curr-step.curr-step--practice {
+      background: #ffffff;
     }
 
     .curr-step.curr-step--practice.curr-step--1 {
@@ -1146,14 +1149,32 @@
     }
 
     .curr-step.curr-step--milestone {
-      margin-top: 0.35rem;
-      border-radius: 14px;
-      border: 1px solid #fecaca;
-      border-top: 3px solid #f87171;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, transparent 38%),
         linear-gradient(165deg, #fef2f2 0%, #fff1f2 45%, #ffe4e6 100%);
-      box-shadow: 0 8px 32px -22px rgba(239, 68, 68, 0.22);
+      box-shadow: 0 6px 24px -20px rgba(239, 68, 68, 0.18);
+    }
+
+    .curr-step.curr-step--practice .curr-step__toggle,
+    .curr-step.curr-step--milestone .curr-step__toggle {
+      padding: 0.6rem 1.25rem;
+    }
+
+    .curr-step.curr-step--practice .curr-step__body,
+    .curr-step.curr-step--milestone .curr-step__body {
+      padding: 0 1.25rem 0.6rem;
+    }
+
+    .curr-step.curr-step--practice .curr-step__num,
+    .curr-step.curr-step--milestone .curr-step__num {
+      min-height: unset;
+      padding: 2px 8px;
+      font-size: 10px;
+    }
+
+    .curr-step.curr-step--practice .curr-step__title,
+    .curr-step.curr-step--milestone .curr-step__title {
+      font-size: 14px;
     }
 
     .curr-step.curr-step--milestone .curr-step__num {
@@ -2461,8 +2482,8 @@
 
           <article class="curr-step curr-step--practice curr-step--1" style="--step-accent: var(--accent);" data-curr-step>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
-              <span class="curr-step__num">Practice</span>
-              <span class="curr-step__title">Practice assignment</span>
+              <span class="curr-step__num">HW 1</span>
+              <span class="curr-step__title">Math Practice Problems — Part 1</span>
               <span class="curr-step__chev" aria-hidden="true">⌄</span>
             </button>
             <div class="curr-step__body" aria-hidden="true">
@@ -2487,8 +2508,8 @@
 
           <article class="curr-step curr-step--practice curr-step--2" style="--step-accent: #06b6d4;" data-curr-step>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
-              <span class="curr-step__num">Practice</span>
-              <span class="curr-step__title">Practice assignment</span>
+              <span class="curr-step__num">HW 2</span>
+              <span class="curr-step__title">Math Practice Problems — Part 2</span>
               <span class="curr-step__chev" aria-hidden="true">⌄</span>
             </button>
             <div class="curr-step__body" aria-hidden="true">
@@ -2512,7 +2533,7 @@
 
           <article class="curr-step curr-step--milestone" style="--step-accent: #f87171;" data-curr-step>
             <button class="curr-step__toggle" type="button" aria-expanded="false">
-              <span class="curr-step__num">Capstone</span>
+              <span class="curr-step__num">HW 3</span>
               <span class="curr-step__title">
                 <span class="curr-step__title-trophy" aria-hidden="true">🏆</span>
                 Full-Length Practice Test
