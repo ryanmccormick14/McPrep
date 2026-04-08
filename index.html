@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink: #0b0f1a;
@@ -747,8 +748,59 @@
       color-scheme: light;
     }
 
-    #instructor .instructor-credentials {
+    #instructor .instructor-top__video {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #instructor .instructor-annotation {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    #instructor .instructor-annotation--video {
+      margin-top: 0.75rem;
+      align-self: flex-start;
+      margin-left: -0.35rem;
+    }
+
+    #instructor .instructor-annotation--credentials {
       margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      align-self: flex-start;
+    }
+
+    #instructor .instructor-annotation__text {
+      font-family: "Caveat", cursive;
+      font-size: 18px;
+      font-weight: 500;
+      color: #6366f1;
+    }
+
+    #instructor .instructor-annotation__text--tilt-left {
+      transform: rotate(-3deg);
+      display: inline-block;
+    }
+
+    #instructor .instructor-annotation__text--tilt-right {
+      transform: rotate(2deg);
+      display: inline-block;
+    }
+
+    #instructor .instructor-annotation svg {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      #instructor .instructor-annotation {
+        display: none;
+      }
+    }
+
+    #instructor .instructor-credentials {
+      margin-top: 0;
     }
 
     .about-text p {
@@ -1495,7 +1547,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     @media (min-width: 520px) {
@@ -1557,12 +1609,6 @@
       padding: calc(1.25rem - 1px) calc(1.5rem - 1px);
     }
 
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body {
-      border-color: #64748b;
-      background: #f1f5f9;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
-    }
-
     #programs .bootcamp-date-card__check {
       position: absolute;
       top: 0.75rem;
@@ -1583,11 +1629,6 @@
       pointer-events: none;
     }
 
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body .bootcamp-date-card__check {
-      background: #64748b;
-      color: #fff;
-    }
-
     #programs .bootcamp-date-card__input:checked + .bootcamp-date-card__body .bootcamp-date-card__check {
       opacity: 1;
     }
@@ -1600,7 +1641,18 @@
       text-transform: uppercase;
       padding: 0.28rem 0.55rem;
       border-radius: 8px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    #programs .bootcamp-date-card__lbl {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-top: 0.75rem;
+      margin-bottom: 0.2rem;
     }
 
     #programs .bootcamp-date-card__pill--sat {
@@ -1613,19 +1665,13 @@
       color: #fff;
     }
 
-    #programs .bootcamp-date-card__pill--fall {
-      background: #e2e8f0;
-      color: #475569;
-      border: 1px solid #cbd5e1;
-    }
-
     #programs .bootcamp-date-card__title {
       display: block;
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--ink);
       letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
+      margin: 0 0 0.1rem;
     }
 
     #programs .bootcamp-date-card__sub {
@@ -1633,7 +1679,7 @@
       font-size: 14px;
       font-weight: 500;
       color: #374151;
-      margin-bottom: 0.35rem;
+      margin: 0 0 0.1rem;
     }
 
     #programs .bootcamp-date-card__dates {
@@ -1644,28 +1690,85 @@
       margin-top: 0.35rem;
     }
 
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__body {
-      background: #f8fafc;
-      border-color: #e2e8f0;
+    #programs .bootcamp-fall-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.85rem 1.25rem;
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+      box-sizing: border-box;
     }
 
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__title,
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__sub {
-      color: #64748b;
+    #programs .bootcamp-fall-banner__left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
     }
 
-    #programs .bootcamp-date-card__notify {
-      display: inline-block;
-      margin-top: 0.65rem;
-      font-size: 0.875rem;
-      font-weight: 700;
+    #programs .bootcamp-fall-banner__pill {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #4f46e5;
+      color: #fff;
+    }
+
+    #programs .bootcamp-fall-banner__text {
+      margin-left: 0.75rem;
+      font-size: 14px;
+      font-weight: 500;
+      color: #3730a3;
+      line-height: 1.45;
+    }
+
+    #programs .bootcamp-fall-banner__cta {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
       color: #4f46e5;
       text-decoration: none;
+      background: #fff;
+      border: 1px solid #c7d2fe;
+      border-radius: 8px;
+      padding: 0.4rem 0.85rem;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
 
-    #programs .bootcamp-date-card__notify:hover {
-      text-decoration: underline;
-      color: #4338ca;
+    #programs .bootcamp-fall-banner__cta:hover {
+      background: #f5f7ff;
+      border-color: #a5b4fc;
+    }
+
+    @media (max-width: 640px) {
+      #programs .bootcamp-fall-banner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #programs .bootcamp-fall-banner__left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #programs .bootcamp-fall-banner__text {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      #programs .bootcamp-fall-banner__cta {
+        width: 100%;
+      }
     }
 
     #programs .bootcamp-offer__pricing {
@@ -1780,39 +1883,140 @@
       display: none;
     }
 
-    .faq-list {
+    #faq .faq-list {
       max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .faq-item {
-      border-bottom: 1px solid var(--line);
-      padding: 1.25rem 0;
+    #faq .faq-card {
+      margin-bottom: 0.75rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .faq-item:first-child {
-      padding-top: 0;
+    #faq .faq-card:last-child {
+      margin-bottom: 0;
     }
 
-    .faq-item h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
+    #faq .faq-card:not(.is-open):hover {
+      background: #f9fafb;
+      border-color: #d1d5db;
     }
 
-    .faq-item p {
+    #faq .faq-card.is-open {
+      background: #fafafe;
+      border: 1.5px solid #6366f1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    #faq .faq-card__trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
       margin: 0;
-      color: var(--ink-muted);
-      font-size: 0.98rem;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      box-sizing: border-box;
     }
 
-    .faq-item a {
+    #faq .faq-card__trigger:focus-visible {
+      outline: 2px solid #6366f1;
+      outline-offset: -2px;
+    }
+
+    #faq .faq-card__question {
+      font-size: 16px;
       font-weight: 600;
-      color: var(--accent);
+      color: #111827;
+      flex: 1;
+      min-width: 0;
     }
 
-    .faq-item a:hover {
+    #faq .faq-card__icon {
+      flex-shrink: 0;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+      color: #6366f1;
+      transition: transform 0.3s ease;
+    }
+
+    #faq .faq-card.is-open .faq-card__icon {
+      transform: rotate(45deg);
+    }
+
+    #faq .faq-card__panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    #faq .faq-card.is-open .faq-card__panel {
+      max-height: 3200px;
+    }
+
+    #faq .faq-card__body {
+      padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+
+    #faq .faq-card__body p {
+      margin: 0 0 1rem;
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    #faq .faq-card__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    #faq .faq-card__body ul {
+      margin: 0 0 1rem;
+      padding: 0 0 0 1.25rem;
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    #faq .faq-card__body ul:last-child {
+      margin-bottom: 0;
+    }
+
+    #faq .faq-card__body ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    #faq .faq-card__body ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    #faq .faq-card__body ul li::marker {
+      color: #6366f1;
+      font-size: 0.85em;
+    }
+
+    #faq .faq-card__body a {
+      font-weight: 600;
+      color: #6366f1;
       text-decoration: underline;
       text-underline-offset: 0.15em;
+    }
+
+    #faq .faq-card__body a:hover {
+      color: #4f46e5;
     }
 
     .contact-grid {
@@ -2069,7 +2273,21 @@
                 <source src="videos/Ryan-intro.mp4" type="video/mp4" />
               </video>
             </div>
+            <div class="instructor-annotation instructor-annotation--video" aria-hidden="true">
+              <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M30 45 C20 30, 10 20, 15 5" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
+                <path d="M15 5 L10 12 M15 5 L22 9" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+              <span class="instructor-annotation__text instructor-annotation__text--tilt-left">that's me! 👋</span>
+            </div>
           </div>
+        </div>
+        <div class="instructor-annotation instructor-annotation--credentials" aria-hidden="true">
+          <span class="instructor-annotation__text instructor-annotation__text--tilt-right">my credentials</span>
+          <svg width="50" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M5 5 C15 10, 30 15, 42 30" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
+            <path d="M42 30 L34 28 M42 30 L40 22" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
+          </svg>
         </div>
         <div class="credential-grid instructor-credentials">
           <div class="credential-card">
@@ -2133,7 +2351,9 @@
               <span class="bootcamp-date-card__body">
                 <span class="bootcamp-date-card__check" aria-hidden="true">✓</span>
                 <span class="bootcamp-date-card__pill bootcamp-date-card__pill--sat">SAT</span>
+                <span class="bootcamp-date-card__lbl">Official test date</span>
                 <span class="bootcamp-date-card__title">May 2, 2026</span>
+                <span class="bootcamp-date-card__lbl">Class times</span>
                 <span class="bootcamp-date-card__sub">Mondays 7–9 PM PT</span>
                 <span class="bootcamp-date-card__dates">Apr 13 · Apr 20 · Apr 27</span>
               </span>
@@ -2143,7 +2363,9 @@
               <span class="bootcamp-date-card__body">
                 <span class="bootcamp-date-card__check" aria-hidden="true">✓</span>
                 <span class="bootcamp-date-card__pill bootcamp-date-card__pill--sat">SAT</span>
+                <span class="bootcamp-date-card__lbl">Official test date</span>
                 <span class="bootcamp-date-card__title">June 6, 2026</span>
+                <span class="bootcamp-date-card__lbl">Class times</span>
                 <span class="bootcamp-date-card__sub">Mondays 7–9 PM PT</span>
                 <span class="bootcamp-date-card__dates">May 18 · May 25 · Jun 1</span>
               </span>
@@ -2153,26 +2375,38 @@
               <span class="bootcamp-date-card__body">
                 <span class="bootcamp-date-card__check" aria-hidden="true">✓</span>
                 <span class="bootcamp-date-card__pill bootcamp-date-card__pill--act">ACT</span>
+                <span class="bootcamp-date-card__lbl">Official test date</span>
                 <span class="bootcamp-date-card__title">June 13, 2026</span>
+                <span class="bootcamp-date-card__lbl">Class times</span>
                 <span class="bootcamp-date-card__sub">Tuesdays 7–9 PM PT</span>
                 <span class="bootcamp-date-card__dates">May 26 · Jun 2 · Jun 9</span>
               </span>
             </label>
-            <label class="bootcamp-date-card bootcamp-date-card--fall">
-              <input class="bootcamp-date-card__input" type="radio" name="bootcamp-date" value="fall" />
+            <label class="bootcamp-date-card">
+              <input class="bootcamp-date-card__input" type="radio" name="bootcamp-date" value="act-jul11" />
               <span class="bootcamp-date-card__body">
                 <span class="bootcamp-date-card__check" aria-hidden="true">✓</span>
-                <span class="bootcamp-date-card__pill bootcamp-date-card__pill--fall">FALL</span>
-                <span class="bootcamp-date-card__title">Fall Boot Camp</span>
-                <span class="bootcamp-date-card__sub">Dates TBD</span>
-                <a
-                  class="bootcamp-date-card__notify"
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Submit interest</a>
+                <span class="bootcamp-date-card__pill bootcamp-date-card__pill--act">ACT</span>
+                <span class="bootcamp-date-card__lbl">Official test date</span>
+                <span class="bootcamp-date-card__title">July 11, 2026</span>
+                <span class="bootcamp-date-card__lbl">Class times</span>
+                <span class="bootcamp-date-card__sub">Mondays 7–9 PM PT</span>
+                <span class="bootcamp-date-card__dates">Jun 22 · Jun 29 · Jul 6</span>
               </span>
             </label>
+          </div>
+
+          <div class="bootcamp-fall-banner">
+            <div class="bootcamp-fall-banner__left">
+              <span class="bootcamp-fall-banner__pill">Fall 2026</span>
+              <span class="bootcamp-fall-banner__text">SAT &amp; ACT Fall boot camps coming soon — submit interest for early bird pricing</span>
+            </div>
+            <a
+              class="bootcamp-fall-banner__cta"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Submit interest →</a>
           </div>
 
           <p class="bootcamp-offer__eyebrow" id="bootcamp-pricing-label"><span aria-hidden="true">💰</span> Pricing</p>
@@ -2340,22 +2574,111 @@
           <h2>FAQ</h2>
           <p>Answers for parents and students.</p>
         </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3>Should I take the SAT, ACT, or both?</h3>
-            <p>Most students benefit from focusing on one test rather than splitting prep time across both. The SAT and ACT test similar content but reward different strengths — choosing strategically can meaningfully raise your score. Take our <a href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">free 3-minute quiz</a> to get a personalized recommendation on which test fits you best.</p>
+        <div class="faq-list" data-faq-accordion>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">
+              <span class="faq-card__question">Should I take the SAT, ACT, or both?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+              <div class="faq-card__body">
+                <p>Most students benefit from focusing on one test rather than splitting prep time across both. The SAT and ACT test similar content but reward different strengths — choosing strategically can meaningfully raise your score. Take our <a href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">free 3-minute quiz</a> to get a personalized recommendation on which test fits you best.</p>
+              </div>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3>Is the SAT or ACT still important for college admissions?</h3>
-            <p>Yes — and increasingly so. Recent research shows that many prestigious universities, including Yale, Dartmouth, and MIT, have reinstated standardized testing requirements after going test-optional. While scores are still optional at many schools, a strong SAT or ACT score strengthens applications, unlocks merit scholarships, and signals readiness to admissions committees.</p>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+              <span class="faq-card__question">When should I take the SAT or ACT?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+              <div class="faq-card__body">
+                <p>
+                  Research from College Board and ACT Inc. suggests the ideal testing window is junior year — this gives students enough academic preparation to score well, while leaving time to retest if needed.
+                </p>
+                <p>A general timeline to follow:</p>
+                <ul>
+                  <li>
+                    Sophomore spring (April–June): Earliest reasonable attempt for high-achieving students who want an early baseline score. Not recommended as a primary attempt.
+                  </li>
+                  <li>
+                    Junior year (fall through spring): The sweet spot. Most students take the test once or twice during this window, with time to prep, test, review results, and retest before college applications are due.
+                  </li>
+                  <li>
+                    Senior summer or early fall (June–October): Last viable window. Scores need to be in before most college application deadlines in November and December. Cutting it close — not recommended as a first attempt.
+                  </li>
+                </ul>
+                <p>The earlier you start, the more options you have.</p>
+              </div>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3>How much can my score improve?</h3>
-            <p>SAT scores typically improve 100–250 points, and ACT scores 2–4 points — but results vary based on your starting score, how much you engage during sessions, and your commitment to independent practice outside of McPrep courses.</p>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+              <span class="faq-card__question">How many times should I take the test?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+              <div class="faq-card__body">
+                <p>
+                  Research consistently shows that students who retake the SAT or ACT — with focused preparation in between — almost always improve their score. But there are diminishing returns.
+                </p>
+                <p>Here's what the data says:</p>
+                <ul>
+                  <li>
+                    First attempt: Establishes your baseline. Most students score below their potential simply due to unfamiliarity with the test format.
+                  </li>
+                  <li>
+                    Second attempt: The highest-value retake. Students who prepare between attempts see the largest average score gains here.
+                  </li>
+                  <li>
+                    Third attempt: Worthwhile if you fell short of a specific target score or had an off day.
+                  </li>
+                  <li>
+                    Beyond three attempts: Research from College Board shows minimal score improvement after the third attempt for most students. At that point the time, cost, and stress rarely justify another sitting.
+                  </li>
+                </ul>
+                <p>The sweet spot is 2–3 attempts with structured prep in between — which is exactly what McPrep is designed for.</p>
+              </div>
+            </div>
           </div>
-          <div class="faq-item">
-            <h3>Who is this program best for?</h3>
-            <p>Students in 10th or 11th grade who want to maximize their score without spending months in prep. Especially effective for students who struggle to stay focused in traditional tutoring — our gamified format is built for exactly that.</p>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+              <span class="faq-card__question">Is the SAT or ACT still important for college admissions?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+              <div class="faq-card__body">
+                <p>
+                  Yes — and increasingly so. Recent research shows that many prestigious universities, including Yale, Dartmouth, and MIT, have reinstated standardized testing requirements after going test-optional. While scores are still optional at many schools, a strong SAT or ACT score strengthens applications, unlocks merit scholarships, and signals readiness to admissions committees.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5">
+              <span class="faq-card__question">How much can my score improve?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+              <div class="faq-card__body">
+                <p>
+                  SAT scores typically improve 100–250 points, and ACT scores 2–4 points — but results vary based on your starting score, how much you engage during sessions, and your commitment to independent practice outside of McPrep courses.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-card" data-faq-item>
+            <button type="button" class="faq-card__trigger" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6">
+              <span class="faq-card__question">Who is this program best for?</span>
+              <span class="faq-card__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-card__panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
+              <div class="faq-card__body">
+                <p>
+                  Students in 10th or 11th grade who want to maximize their score without spending months in prep. Especially effective for students who struggle to stay focused in traditional tutoring — our gamified format is built for exactly that.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2548,10 +2871,6 @@
       function update() {
         var sel = root.querySelector('input[name="bootcamp-date"]:checked');
         var v = sel ? sel.value : "";
-        if (v === "fall") {
-          if (ctaPanel) ctaPanel.hidden = true;
-          return;
-        }
         if (ctaPanel) ctaPanel.hidden = false;
         if (!cta) return;
         var textByValue = {
@@ -2559,6 +2878,7 @@
           "sat-may2": "Save my spot — SAT May 2 Boot Camp →",
           "sat-jun6": "Save my spot — SAT June 6 Boot Camp →",
           "act-jun13": "Save my spot — ACT June 13 Boot Camp →",
+          "act-jul11": "Save my spot — ACT July 11 Boot Camp →",
         };
         cta.textContent = Object.prototype.hasOwnProperty.call(textByValue, v) ? textByValue[v] : textByValue[""];
       }
@@ -2567,16 +2887,37 @@
         inp.addEventListener("change", update);
       });
       update();
+    })();
 
-      root.querySelectorAll(".bootcamp-date-card__notify").forEach(function (a) {
-        a.addEventListener(
-          "click",
-          function (e) {
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-          },
-          true
-        );
+    (function () {
+      var root = document.querySelector("[data-faq-accordion]");
+      if (!root) return;
+      var cards = root.querySelectorAll("[data-faq-item]");
+
+      function setAllCollapsed() {
+        cards.forEach(function (c) {
+          c.classList.remove("is-open");
+          var b = c.querySelector(".faq-card__trigger");
+          var p = c.querySelector(".faq-card__panel");
+          if (b) b.setAttribute("aria-expanded", "false");
+          if (p) p.setAttribute("aria-hidden", "true");
+        });
+      }
+
+      cards.forEach(function (card) {
+        var btn = card.querySelector(".faq-card__trigger");
+        var panel = card.querySelector(".faq-card__panel");
+        if (!btn || !panel) return;
+        panel.setAttribute("aria-hidden", "true");
+        btn.addEventListener("click", function () {
+          var willOpen = !card.classList.contains("is-open");
+          setAllCollapsed();
+          if (willOpen) {
+            card.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+            panel.setAttribute("aria-hidden", "false");
+          }
+        });
       });
     })();
   </script>
