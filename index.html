@@ -773,8 +773,23 @@
 
     #instructor .instructor-annotation--video {
       margin-top: 0.75rem;
-      align-self: flex-start;
-      margin-left: -0.35rem;
+      align-self: stretch;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.2rem;
+      margin-left: 0;
+      text-align: center;
+    }
+
+    #instructor .instructor-annotation--video .instructor-annotation__text {
+      font-size: 22px;
+    }
+
+    #instructor .instructor-annotation--video svg {
+      width: 44px;
+      height: 44px;
     }
 
     #instructor .instructor-annotation--credentials {
@@ -2235,9 +2250,15 @@
               </video>
             </div>
             <div class="instructor-annotation instructor-annotation--video" aria-hidden="true">
-              <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <path d="M30 45 C20 30, 10 20, 15 5" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
-                <path d="M15 5 L10 12 M15 5 L22 9" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
+              <svg viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path
+                  d="M28 48 C22 38, 34 28, 28 16 C26 12, 26 8, 28 6"
+                  stroke="#6366f1"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <path d="M28 4 L23 11 M28 4 L33 11" stroke="#6366f1" stroke-width="2" stroke-linecap="round" fill="none" />
               </svg>
               <span class="instructor-annotation__text instructor-annotation__text--tilt-left">that's me! 👋</span>
             </div>
