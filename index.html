@@ -1393,17 +1393,17 @@
       max-width: none;
       width: 100%;
       margin: 0 0 2rem;
-      padding: clamp(2rem, 3vw, 2.5rem);
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      border: 1px solid var(--line);
+      padding: 2.5rem;
+      background: #fafafa;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
     }
 
     #programs .bootcamp-offer__title {
-      margin: 0 0 0.85rem;
-      font-size: clamp(1.25rem, 2.5vw, 1.45rem);
-      font-weight: 800;
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--ink);
       text-align: center;
@@ -1413,8 +1413,8 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.45rem 0.6rem;
-      margin-bottom: 1.1rem;
+      gap: 0.5rem 0.65rem;
+      margin: 0.75rem 0 1.25rem;
       list-style: none;
       padding: 0;
     }
@@ -1423,57 +1423,63 @@
       margin: 0;
       font-size: 14px;
       font-weight: 500;
-      padding: 0.35rem 0.9rem;
+      padding: 0.4rem 1rem;
       border-radius: 999px;
-      border: none;
     }
 
     #programs .bootcamp-offer__pills li:nth-child(1) {
       background: #dbeafe;
       color: #1e40af;
+      border: 1px solid rgba(30, 64, 175, 0.4);
     }
 
     #programs .bootcamp-offer__pills li:nth-child(2) {
       background: #ede9fe;
       color: #5b21b6;
+      border: 1px solid rgba(91, 33, 182, 0.4);
     }
 
     #programs .bootcamp-offer__pills li:nth-child(3) {
       background: #dcfce7;
       color: #166534;
+      border: 1px solid rgba(22, 101, 52, 0.4);
     }
 
     #programs .bootcamp-offer__pills li:nth-child(4) {
       background: #ffedd5;
       color: #9a3412;
+      border: 1px solid rgba(154, 52, 18, 0.4);
     }
 
     #programs .bootcamp-offer__callouts {
       display: grid;
-      gap: 0.5rem;
+      gap: 0.35rem;
       margin-bottom: 1.5rem;
     }
 
     #programs .bootcamp-offer__callout {
       margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.45;
-      padding: 0.55rem 0.75rem;
+      line-height: 1.5;
       border-radius: 10px;
     }
 
     #programs .bootcamp-offer__callout--green {
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      color: #065f46;
+      font-size: 15px;
       font-weight: 600;
+      padding: 0.65rem 0.85rem;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-left: 4px solid #22c55e;
+      color: #15803d;
     }
 
     #programs .bootcamp-offer__callout--muted {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      color: var(--ink-muted);
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 0.35rem 0 0.35rem 0.5rem;
+      color: #6b7280;
+      background: transparent;
+      border: 0;
     }
 
     #programs .bootcamp-offer__eyebrow {
@@ -1487,14 +1493,20 @@
 
     #programs .bootcamp-offer__dates {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.85rem;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
       margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 560px) {
+    @media (min-width: 520px) {
       #programs .bootcamp-offer__dates {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      #programs .bootcamp-offer__dates {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
 
@@ -1517,7 +1529,8 @@
       position: relative;
       display: block;
       height: 100%;
-      padding: 1rem;
+      box-sizing: border-box;
+      padding: 1.25rem 1.5rem;
       background: #ffffff;
       border: 1px solid #e5e7eb;
       border-radius: 12px;
@@ -1525,15 +1538,10 @@
     }
 
     #programs .bootcamp-date-card:hover .bootcamp-date-card__body {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      border-color: #4f46e5;
-    }
-
-    #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body:hover {
-      border-color: #64748b;
-      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+      border: 2px solid #4f46e5;
+      padding: calc(1.25rem - 1px) calc(1.5rem - 1px);
     }
 
     #programs .bootcamp-date-card__input:focus-visible + .bootcamp-date-card__body {
@@ -1542,37 +1550,42 @@
     }
 
     #programs .bootcamp-date-card__input:checked + .bootcamp-date-card__body {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
       border: 2px solid #4f46e5;
       background: #eef2ff;
-      padding: calc(1rem - 1px);
-      box-shadow: 0 2px 12px rgba(79, 70, 229, 0.12);
-      transform: none;
-    }
-
-    #programs .bootcamp-date-card__input:checked + .bootcamp-date-card__body:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      padding: calc(1.25rem - 1px) calc(1.5rem - 1px);
     }
 
     #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body {
       border-color: #64748b;
       background: #f1f5f9;
-      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
     }
 
     #programs .bootcamp-date-card__check {
       position: absolute;
-      top: 0.65rem;
-      right: 0.65rem;
-      font-size: 0.85rem;
-      font-weight: 900;
-      color: #4f46e5;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 1.375rem;
+      height: 1.375rem;
+      border-radius: 999px;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       opacity: 0;
       transition: opacity 0.15s ease;
+      pointer-events: none;
     }
 
     #programs .bootcamp-date-card--fall .bootcamp-date-card__input:checked + .bootcamp-date-card__body .bootcamp-date-card__check {
-      color: #475569;
+      background: #64748b;
+      color: #fff;
     }
 
     #programs .bootcamp-date-card__input:checked + .bootcamp-date-card__body .bootcamp-date-card__check {
@@ -1608,8 +1621,8 @@
 
     #programs .bootcamp-date-card__title {
       display: block;
-      font-size: 1.05rem;
-      font-weight: 800;
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--ink);
       letter-spacing: -0.02em;
       margin-bottom: 0.25rem;
@@ -1617,17 +1630,18 @@
 
     #programs .bootcamp-date-card__sub {
       display: block;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--ink-muted);
+      font-size: 14px;
+      font-weight: 500;
+      color: #374151;
       margin-bottom: 0.35rem;
     }
 
     #programs .bootcamp-date-card__dates {
       display: block;
-      font-size: 0.8rem;
-      color: #64748b;
-      font-weight: 600;
+      font-size: 13px;
+      color: #9ca3af;
+      font-weight: 500;
+      margin-top: 0.35rem;
     }
 
     #programs .bootcamp-date-card--fall .bootcamp-date-card__body {
@@ -1643,44 +1657,51 @@
     #programs .bootcamp-date-card__notify {
       display: inline-block;
       margin-top: 0.65rem;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       font-weight: 700;
-      color: var(--accent);
+      color: #4f46e5;
+      text-decoration: none;
     }
 
     #programs .bootcamp-date-card__notify:hover {
       text-decoration: underline;
+      color: #4338ca;
     }
 
     #programs .bootcamp-offer__pricing {
-      background: #f9fafb;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.35rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     #programs .bootcamp-offer__price-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.5rem 0.75rem;
-      margin: 0 0 0.65rem;
-      font-size: 0.94rem;
-      color: var(--ink);
+      gap: 0.5rem 0.65rem;
+      margin: 0 0 0.85rem;
       line-height: 1.45;
     }
 
-    #programs .bootcamp-offer__price-row:last-child {
+    #programs .bootcamp-offer__pricing .bootcamp-offer__price-row:last-child {
       margin-bottom: 0;
+    }
+
+    #programs .bootcamp-offer__price-label {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
     }
 
     #programs .bootcamp-offer__price-badge {
       display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: 0.28rem 0.55rem;
+      padding: 0.3rem 0.85rem;
       border-radius: 999px;
       background: #d1fae5;
       color: #047857;
@@ -1690,7 +1711,25 @@
     #programs .bootcamp-offer__price-muted {
       color: #6b7280;
       font-weight: 500;
-      font-size: 0.94rem;
+      font-size: 13px;
+    }
+
+    #programs .bootcamp-offer__price-row--continue {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    #programs .bootcamp-offer__price-continue-label {
+      font-weight: 600;
+      font-size: 15px;
+      color: #374151;
+    }
+
+    #programs .bootcamp-offer__price-detail {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
     }
 
     #programs .bootcamp-offer__cta-wrap {
@@ -1698,47 +1737,47 @@
     }
 
     #programs .bootcamp-offer__cta {
+      display: block;
       width: 100%;
       max-width: 100%;
-      font-size: 1rem;
-      font-weight: 800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-sizing: border-box;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 1rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: #4f46e5;
+      color: #fff;
+      transition: all 0.2s ease;
+    }
+
+    #programs .bootcamp-offer__cta:visited {
+      color: #fff;
     }
 
     #programs .bootcamp-offer__cta:hover {
-      transform: scale(1.02);
+      background: #4338ca;
+      transform: scale(1.01);
     }
 
-    #programs .bootcamp-offer__cta-sub {
-      margin: 0.5rem 0 0;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--ink-muted);
+    #programs .bootcamp-offer__cta:focus-visible {
+      outline: 2px solid #312e81;
+      outline-offset: 3px;
     }
 
     #programs .bootcamp-offer__spots {
-      margin: 0.85rem 0 0;
-      font-size: 0.8rem;
-      color: #64748b;
-      font-weight: 600;
-    }
-
-    #programs .bootcamp-offer__notify-only {
+      margin: 0.75rem 0 0;
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 500;
       text-align: center;
-      padding: 0.5rem 0;
-    }
-
-    #programs .bootcamp-offer__notify-only[hidden] {
-      display: none;
     }
 
     #programs .bootcamp-offer__cta-wrap[hidden] {
       display: none;
-    }
-
-    #programs .bootcamp-offer__notify-link {
-      font-weight: 800;
-      font-size: 1.05rem;
     }
 
     .faq-list {
@@ -2126,7 +2165,12 @@
                 <span class="bootcamp-date-card__pill bootcamp-date-card__pill--fall">FALL</span>
                 <span class="bootcamp-date-card__title">Fall Boot Camp</span>
                 <span class="bootcamp-date-card__sub">Dates TBD</span>
-                <a class="bootcamp-date-card__notify" href="mailto:ryan@mcprep.academy">Notify me when available</a>
+                <a
+                  class="bootcamp-date-card__notify"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Submit interest</a>
               </span>
             </label>
           </div>
@@ -2134,29 +2178,26 @@
           <p class="bootcamp-offer__eyebrow" id="bootcamp-pricing-label"><span aria-hidden="true">💰</span> Pricing</p>
           <div class="bootcamp-offer__pricing" aria-labelledby="bootcamp-pricing-label">
             <div class="bootcamp-offer__price-row">
-              <span>First class</span>
+              <span class="bootcamp-offer__price-label">First class</span>
               <span class="bootcamp-offer__price-badge">FREE</span>
               <span class="bootcamp-offer__price-muted">· no commitment</span>
             </div>
-            <div class="bootcamp-offer__price-row">
-              <span>Pay only if you continue</span>
-              <span>$160 total · $40/hr · 2 hrs/session · pay via Venmo or Zelle</span>
+            <div class="bootcamp-offer__price-row bootcamp-offer__price-row--continue">
+              <span class="bootcamp-offer__price-continue-label">Pay only if you continue</span>
+              <span class="bootcamp-offer__price-detail"
+                >$160 total · $40/hr · 2 hrs/session · pay via Venmo or Zelle</span>
             </div>
           </div>
 
           <div class="bootcamp-offer__cta-wrap" data-bootcamp-cta-panel>
             <a
-              class="btn btn-primary bootcamp-offer__cta"
+              class="bootcamp-offer__cta"
               data-bootcamp-cta
               href="https://docs.google.com/forms/d/e/1FAIpQLSfZY_2sAJGV7SaVVZ8fO64f-WX5cSkmxEdW4yk2O21c4dg7lA/viewform?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-            >Save your spot</a>
-            <p class="bootcamp-offer__cta-sub">No payment or commitment required</p>
-            <p class="bootcamp-offer__spots">🔒 Limited spots per session</p>
-          </div>
-          <div class="bootcamp-offer__notify-only" data-bootcamp-notify-panel hidden>
-            <a class="bootcamp-offer__notify-link" href="mailto:ryan@mcprep.academy">Notify me when available</a>
+            >Save your spot — it's free to start</a>
+            <p class="bootcamp-offer__spots">🔒 Limited spots per session · No payment needed to reserve</p>
           </div>
         </div>
       </div>
@@ -2502,7 +2543,6 @@
       if (!root) return;
       var cta = root.querySelector("[data-bootcamp-cta]");
       var ctaPanel = root.querySelector("[data-bootcamp-cta-panel]");
-      var notifyPanel = root.querySelector("[data-bootcamp-notify-panel]");
       var inputs = root.querySelectorAll('input[name="bootcamp-date"]');
 
       function update() {
@@ -2510,17 +2550,15 @@
         var v = sel ? sel.value : "";
         if (v === "fall") {
           if (ctaPanel) ctaPanel.hidden = true;
-          if (notifyPanel) notifyPanel.hidden = false;
           return;
         }
         if (ctaPanel) ctaPanel.hidden = false;
-        if (notifyPanel) notifyPanel.hidden = true;
         if (!cta) return;
         var textByValue = {
-          "": "Save your spot",
-          "sat-may2": "Save my spot — SAT May 2 Boot Camp",
-          "sat-jun6": "Save my spot — SAT June 6 Boot Camp",
-          "act-jun13": "Save my spot — ACT June 13 Boot Camp",
+          "": "Save your spot — it's free to start",
+          "sat-may2": "Save my spot — SAT May 2 Boot Camp →",
+          "sat-jun6": "Save my spot — SAT June 6 Boot Camp →",
+          "act-jun13": "Save my spot — ACT June 13 Boot Camp →",
         };
         cta.textContent = Object.prototype.hasOwnProperty.call(textByValue, v) ? textByValue[v] : textByValue[""];
       }
