@@ -13,8 +13,11 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="McPrep — Gamified SAT/ACT Prep | Online" />
   <meta name="twitter:description" content="Live online SAT and ACT prep on Zoom — gamified boot camps, small groups, and coaching from an experienced math teacher." />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -125,9 +128,9 @@
     }
 
     .logo-lockup {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
       text-decoration: none;
       color: var(--ink);
       flex-shrink: 0;
@@ -141,10 +144,13 @@
       color: var(--ink);
     }
 
-    .logo-lockup .logo-mark {
-      width: 34px;
-      height: 40px;
+    .logo-lockup .logo-lockup-img {
+      width: 28px;
+      height: 28px;
       flex-shrink: 0;
+      border-radius: 4px;
+      vertical-align: middle;
+      object-fit: contain;
     }
 
     .logo-lockup .logo-text {
@@ -386,10 +392,12 @@
       padding-right: 0.35rem;
     }
 
-    .hero-brand .logo-mark {
-      width: clamp(52px, 10vw, 64px);
-      height: clamp(60px, 11vw, 74px);
+    .hero-brand .hero-brand-img {
+      width: clamp(52px, 10vw, 72px);
+      height: clamp(52px, 10vw, 72px);
       flex-shrink: 0;
+      object-fit: contain;
+      border-radius: 8px;
       filter: drop-shadow(0 8px 20px rgba(99, 102, 241, 0.35));
     }
 
@@ -2083,55 +2091,17 @@
   </style>
 </head>
 <body>
-  <!-- Rocket–pencil logo gradients -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="rk-metal" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#94a3b8" />
-        <stop offset="45%" stop-color="#e2e8f0" />
-        <stop offset="100%" stop-color="#64748b" />
-      </linearGradient>
-      <linearGradient id="rk-hull" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#cbd5e1" />
-        <stop offset="40%" stop-color="#f1f5f9" />
-        <stop offset="100%" stop-color="#94a3b8" />
-      </linearGradient>
-      <linearGradient id="rk-flame" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stop-color="#fef9c3" />
-        <stop offset="25%" stop-color="#fcd34d" />
-        <stop offset="55%" stop-color="#f97316" />
-        <stop offset="100%" stop-color="#b91c1c" />
-      </linearGradient>
-      <linearGradient id="rk-pencil" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#fde047" />
-        <stop offset="100%" stop-color="#eab308" />
-      </linearGradient>
-    </defs>
-  </svg>
-
   <header>
     <div class="wrap nav">
       <a class="logo-lockup" href="#" aria-label="McPrep home">
-        <svg class="logo-mark" viewBox="0 0 48 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M6 18 L4 26 L8 24 Z" fill="#fff" opacity="0.35" />
-          <path d="M42 16 L44 24 L40 22 Z" fill="#fff" opacity="0.28" />
-          <path d="M24 1 L32 14 L16 14 Z" fill="#1e293b" />
-          <path d="M24 1 L28 11 L20 11 Z" fill="#64748b" />
-          <path d="M24 1 L24 8 L21 11 L20 11 Z" fill="#94a3b8" opacity="0.9" />
-          <path d="M17 14 L31 14 L29.5 17 L18.5 17 Z" fill="url(#rk-metal)" />
-          <path d="M15 17 L33 17 L31 32 L17 32 Z" fill="url(#rk-hull)" />
-          <path d="M16 20 L20 20 L19 30 L17 30 Z" fill="#fff" opacity="0.45" />
-          <rect x="14" y="23" width="20" height="3.2" rx="0.5" fill="url(#rk-pencil)" opacity="0.95" />
-          <rect x="14" y="27" width="20" height="1.4" fill="#171717" opacity="0.85" />
-          <circle cx="24" cy="19" r="2.2" fill="#38bdf8" opacity="0.85" />
-          <circle cx="23" cy="18.2" r="0.7" fill="#fff" opacity="0.9" />
-          <path d="M12 22 L8 28 L11 29 L14 23 Z" fill="#64748b" />
-          <path d="M36 22 L40 28 L37 29 L34 23 Z" fill="#64748b" />
-          <path d="M10 33 Q24 30 38 33 Q32 52 24 55 Q16 52 10 33" fill="url(#rk-flame)" />
-          <path d="M15 33 Q24 36 33 33 Q29 48 24 51 Q19 48 15 33" fill="#fde047" opacity="0.75" />
-          <path d="M19 34 Q24 38 29 34 Q26 45 24 47 Q22 45 19 34" fill="#fff" opacity="0.5" />
-          <path d="M21 35 Q24 40 27 35 Q25 42 24 43.5 Q23 42 21 35" fill="#fef08a" opacity="0.9" />
-        </svg>
+        <img
+          class="logo-lockup-img"
+          src="/favicon/favicon-96x96.png"
+          width="28"
+          height="28"
+          alt="McPrep logo"
+          decoding="async"
+        />
         <span class="logo-text"><span class="brand-mc">Mc</span><span class="brand-prep">Prep</span></span>
       </a>
       <button type="button" class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav-list">
@@ -2158,26 +2128,14 @@
       <div class="wrap hero-grid">
         <div>
           <div class="hero-brand">
-            <svg class="logo-mark" viewBox="0 0 48 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M6 18 L4 26 L8 24 Z" fill="#fff" opacity="0.35" />
-              <path d="M42 16 L44 24 L40 22 Z" fill="#fff" opacity="0.28" />
-              <path d="M24 1 L32 14 L16 14 Z" fill="#1e293b" />
-              <path d="M24 1 L28 11 L20 11 Z" fill="#64748b" />
-              <path d="M24 1 L24 8 L21 11 L20 11 Z" fill="#94a3b8" opacity="0.9" />
-              <path d="M17 14 L31 14 L29.5 17 L18.5 17 Z" fill="url(#rk-metal)" />
-              <path d="M15 17 L33 17 L31 32 L17 32 Z" fill="url(#rk-hull)" />
-              <path d="M16 20 L20 20 L19 30 L17 30 Z" fill="#fff" opacity="0.45" />
-              <rect x="14" y="23" width="20" height="3.2" rx="0.5" fill="url(#rk-pencil)" opacity="0.95" />
-              <rect x="14" y="27" width="20" height="1.4" fill="#171717" opacity="0.85" />
-              <circle cx="24" cy="19" r="2.2" fill="#38bdf8" opacity="0.85" />
-              <circle cx="23" cy="18.2" r="0.7" fill="#fff" opacity="0.9" />
-              <path d="M12 22 L8 28 L11 29 L14 23 Z" fill="#64748b" />
-              <path d="M36 22 L40 28 L37 29 L34 23 Z" fill="#64748b" />
-              <path d="M10 33 Q24 30 38 33 Q32 52 24 55 Q16 52 10 33" fill="url(#rk-flame)" />
-              <path d="M15 33 Q24 36 33 33 Q29 48 24 51 Q19 48 15 33" fill="#fde047" opacity="0.75" />
-              <path d="M19 34 Q24 38 29 34 Q26 45 24 47 Q22 45 19 34" fill="#fff" opacity="0.5" />
-              <path d="M21 35 Q24 40 27 35 Q25 42 24 43.5 Q23 42 21 35" fill="#fef08a" opacity="0.9" />
-            </svg>
+            <img
+              class="hero-brand-img"
+              src="/favicon/favicon-96x96.png"
+              width="72"
+              height="72"
+              alt=""
+              decoding="async"
+            />
             <p class="wordmark"><span class="brand-mc">Mc</span><span class="brand-prep">Prep</span></p>
           </div>
           <h1>Boost your SAT or ACT score in just 3 sessions</h1>
