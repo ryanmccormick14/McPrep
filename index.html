@@ -698,31 +698,6 @@
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
     }
 
-    .welcome-video-frame {
-      max-width: 720px;
-      margin-inline: auto;
-      width: 100%;
-    }
-
-    .welcome-video-aspect {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-      background: #0f172a;
-    }
-
-    .welcome-video-aspect iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
     .section-head {
       max-width: 48ch;
       margin-bottom: 2.25rem;
@@ -756,26 +731,20 @@
       margin-bottom: 1.25rem;
     }
 
-    .instructor-loom {
+    .instructor-video-wrap {
       width: 100%;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .instructor-loom__aspect {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-    }
-
-    .instructor-loom__aspect iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+    #instructor .instructor-video-wrap video {
       width: 100%;
-      height: 100%;
-      border: 0;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      accent-color: var(--accent);
+      color-scheme: light;
     }
 
     #instructor .instructor-credentials {
@@ -841,7 +810,7 @@
       color: var(--ink-muted);
     }
 
-    .curriculum-video-loom {
+    .curriculum-video-wrap {
       max-width: 800px;
       margin: 0 auto;
       width: 100%;
@@ -850,19 +819,13 @@
       box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
     }
 
-    .curriculum-video-loom__aspect {
-      position: relative;
-      padding-bottom: 62.5%;
-      height: 0;
-    }
-
-    .curriculum-video-loom__aspect iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+    #curriculum-video .curriculum-video-wrap video {
       width: 100%;
-      height: 100%;
-      border: 0;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      accent-color: var(--accent);
+      color-scheme: light;
     }
 
     .powered-card {
@@ -2039,26 +2002,6 @@
       </div>
     </section>
 
-    <section class="welcome-video-section" aria-labelledby="welcome-video-heading">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="welcome-video-heading">Welcome to McPrep</h2>
-          <p>A quick note from your instructor</p>
-        </div>
-        <div class="welcome-video-frame">
-          <div class="welcome-video-aspect">
-            <iframe
-              src="https://www.loom.com/embed/fa5b38f15481472f97674df5035a2bf9"
-              title="Welcome to McPrep — a message from your instructor"
-              allowfullscreen
-              allow="fullscreen"
-              loading="lazy"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="alt" id="instructor">
       <div class="wrap">
         <div class="instructor-top">
@@ -2082,16 +2025,10 @@
             </div>
           </div>
           <div class="instructor-top__video">
-            <div class="instructor-loom">
-              <div class="instructor-loom__aspect">
-                <iframe
-                  src="https://www.loom.com/embed/a7086b8d6dcf422cb3027c3210ca0403"
-                  title="Meet your instructor — introduction video"
-                  allowfullscreen
-                  allow="fullscreen"
-                  loading="lazy"
-                ></iframe>
-              </div>
+            <div class="instructor-video-wrap">
+              <video controls playsinline poster="" preload="metadata" aria-label="Meet your instructor introduction">
+                <source src="videos/Ryan-intro.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -2313,16 +2250,10 @@
             A walkthrough of what a McPrep session looks like — live software, real strategies, and the gamified tools we use every class.
           </p>
         </div>
-        <div class="curriculum-video-loom">
-          <div class="curriculum-video-loom__aspect">
-            <iframe
-              src="https://www.loom.com/embed/dad37061c14b4287a83f87a4935aab62"
-              title="McPrep session walkthrough"
-              allowfullscreen
-              allow="fullscreen"
-              loading="lazy"
-            ></iframe>
-          </div>
+        <div class="curriculum-video-wrap">
+          <video controls playsinline poster="" preload="metadata" aria-label="McPrep session walkthrough">
+            <source src="videos/Curriculum-walkthrough.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </section>
