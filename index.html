@@ -43,8 +43,6 @@
       --xp-gold: #f59e0b;
       --hud: #8b5cf6;
       --hud-soft: #f5f3ff;
-      --leaderboard-bg: #0f1219;
-      --leaderboard-panel: #181c28;
       --glow: rgba(99, 102, 241, 0.45);
     }
 
@@ -462,242 +460,213 @@
       gap: 0.75rem;
     }
 
-    /* Leaderboard visual */
-    .leaderboard-visual {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: var(--leaderboard-bg);
-      box-shadow:
-        0 24px 48px -12px rgba(15, 18, 25, 0.55),
-        0 0 0 1px rgba(99, 102, 241, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    /* Hero stats (replaces leaderboard) */
+    .hero-stats-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      font-family: "DM Sans", system-ui, sans-serif;
+      width: 100%;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+
+    @media (min-width: 900px) {
+      .hero-stats-wrap {
+        margin-inline: 0;
+        max-width: none;
+      }
+    }
+
+    .hero-free-pill {
+      margin: 0;
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .hero-stat-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .hero-stat-grid {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      .hero-stat-card {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    .hero-stat-card {
+      margin: 0;
+      padding: 0.85rem 0.75rem;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+      font-weight: 700;
+      color: #4f46e5;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+    }
+
+    .hero-stat-prefix,
+    .hero-stat-suffix {
+      font-weight: 700;
+      color: #4f46e5;
+    }
+
+    .hero-stat-label {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #374151;
+      line-height: 1.35;
+    }
+
+    /* What You Get */
+    #what-you-get {
+      background: #f9fafb;
+      border-block: 1px solid var(--line);
+    }
+
+    #what-you-get .wyg-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 900px) {
+      #what-you-get .wyg-grid {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: start;
+      }
+    }
+
+    #what-you-get .wyg-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.25rem 1.2rem;
       font-family: "DM Sans", system-ui, sans-serif;
     }
 
-    .lb-chrome {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1rem;
-      background: linear-gradient(180deg, #1a1f2e 0%, var(--leaderboard-panel) 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .lb-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ef4444;
-    }
-
-    .lb-dot:nth-child(2) {
-      background: var(--xp-gold);
-    }
-
-    .lb-dot:nth-child(3) {
-      background: var(--win);
-    }
-
-    .lb-title {
-      margin-left: auto;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(248, 250, 252, 0.55);
-    }
-
-    .lb-content {
-      padding: 1rem 1.1rem 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .lb-banner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
-      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.12));
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      color: #fde68a;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .lb-row {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 0.65rem 0.85rem;
-      align-items: center;
-      padding: 0.65rem 0.7rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .lb-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: #fff;
-    }
-
-    .lb-icon.math {
-      background: linear-gradient(145deg, #6366f1, #4f46e5);
-    }
-
-    .lb-icon.reading {
-      background: linear-gradient(145deg, #06b6d4, #0891b2);
-    }
-
-    .lb-icon.science {
-      background: linear-gradient(145deg, #10b981, #059669);
-    }
-
-    .lb-name {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 0.35rem;
-    }
-
-    .lb-sublabel {
-      font-size: 0.68rem;
-      color: rgba(148, 163, 184, 0.95);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .lb-bar {
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-    }
-
-    .lb-fill {
-      height: 100%;
-      border-radius: inherit;
-      width: 0;
-      animation: bar-fill 2.2s ease-out forwards;
-    }
-
-    .lb-fill.math {
-      background: linear-gradient(90deg, #818cf8, #a5b4fc);
-      animation-delay: 0.2s;
-    }
-
-    .lb-fill.reading {
-      background: linear-gradient(90deg, #22d3ee, #67e8f9);
-      animation-delay: 0.5s;
-    }
-
-    .lb-fill.science {
-      background: linear-gradient(90deg, #34d399, #6ee7b7);
-      animation-delay: 0.8s;
-    }
-
-    .lb-row:nth-child(3) .lb-fill {
-      animation-name: bar-fill-reading;
-    }
-
-    .lb-row:nth-child(4) .lb-fill {
-      animation-name: bar-fill-science;
-    }
-
-    @keyframes bar-fill {
-      to { width: 82%; }
-    }
-
-    @keyframes bar-fill-reading {
-      to { width: 74%; }
-    }
-
-    @keyframes bar-fill-science {
-      to { width: 68%; }
-    }
-
-    .lb-points {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .lb-num {
-      display: inline-block;
+    #what-you-get .wyg-card h3 {
+      margin: 0 0 0.75rem;
       font-size: 1.05rem;
-      font-weight: 800;
-      color: #fff;
-      animation: xp-glow 2.5s ease-in-out infinite;
+      color: #4f46e5;
     }
 
-    .lb-points small {
-      display: block;
-      font-size: 0.65rem;
+    #what-you-get .wyg-card p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    #what-you-get .wyg-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    #what-you-get .wyg-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    #what-you-get .wyg-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    #what-you-get .wyg-compare-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #what-you-get .wyg-compare {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    #what-you-get .wyg-compare th,
+    #what-you-get .wyg-compare td {
+      padding: 0.65rem 0.75rem;
+      border: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+
+    #what-you-get .wyg-compare thead th {
+      background: #fff;
       font-weight: 700;
-      color: var(--xp-gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      color: var(--ink);
+      text-align: left;
     }
 
-    @keyframes xp-glow {
-      0%, 100% { text-shadow: 0 0 0 transparent; }
-      50% { text-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+    #what-you-get .wyg-compare thead th:first-child {
+      border-radius: 12px 0 0 0;
+      border-right: none;
+      width: 28%;
     }
 
-    .lb-delta {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #4ade80;
-      margin-top: 0.15rem;
+    #what-you-get .wyg-compare thead th:nth-child(2) {
+      border-radius: 0;
     }
 
-    .lb-float {
-      position: absolute;
-      font-weight: 800;
-      font-size: 0.85rem;
-      pointer-events: none;
+    #what-you-get .wyg-compare thead th.wyg-compare__mcprep {
+      background: #eef2ff;
+      border-color: #6366f1;
+      color: #3730a3;
+      border-radius: 0 12px 0 0;
     }
 
-    .lb-float.one {
-      top: 42%;
-      right: 8%;
-      color: #4ade80;
-      animation: float-up 2.8s ease-out infinite;
+    #what-you-get .wyg-compare tbody tr:last-child th[scope="row"] {
+      border-radius: 0 0 0 12px;
     }
 
-    .lb-float.two {
-      top: 62%;
-      right: 12%;
-      color: #22d3ee;
-      animation: float-up 3.2s ease-out infinite 0.4s;
+    #what-you-get .wyg-compare tbody tr:last-child td.wyg-compare__mcprep {
+      border-radius: 0 0 12px 0;
     }
 
-    .lb-float.three {
-      top: 78%;
-      right: 6%;
-      color: #a78bfa;
-      animation: float-up 3s ease-out infinite 0.9s;
+    #what-you-get .wyg-compare tbody th[scope="row"] {
+      font-weight: 600;
+      color: var(--ink-muted);
+      background: #fafafa;
+      border-right: none;
     }
 
-    @keyframes float-up {
-      0% { opacity: 0; transform: translateY(8px) scale(0.9); }
-      15% { opacity: 1; transform: translateY(0) scale(1); }
-      100% { opacity: 0; transform: translateY(-28px) scale(1); }
+    #what-you-get .wyg-compare tbody td.wyg-compare__mcprep {
+      background: #eef2ff;
+      border-color: #6366f1;
+      color: #1e1b4b;
+    }
+
+    #what-you-get .wyg-trust {
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      color: var(--ink-muted);
     }
 
     section {
@@ -906,88 +875,13 @@
       color-scheme: light;
     }
 
-    .powered-card {
-      border-radius: 14px;
-      border: 1px solid rgba(99, 102, 241, 0.18);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, transparent 42%),
-        linear-gradient(145deg, #eef2ff 0%, #ecfeff 38%, #e0f2fe 72%, #f5f3ff 100%);
-      box-shadow:
-        0 10px 40px -28px rgba(59, 130, 246, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      padding: 1.35rem 1.15rem;
-      margin-bottom: 1.5rem;
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    @media (min-width: 740px) {
-      .powered-card {
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        padding: 1.5rem 1.6rem;
-      }
-    }
-
-    .powered-card .powered-kicker {
-      display: inline-flex;
-      gap: 0.5rem;
-      align-items: center;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: #334155;
-    }
-
-    .powered-card .powered-kicker::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--accent-bright), var(--cyan));
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
-    }
-
-    .powered-card h3 {
-      margin: 0.25rem 0 0.35rem;
-      font-size: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-
-    .powered-card p {
-      margin: 0;
-      color: var(--ink-muted);
-      font-size: 0.97rem;
-      line-height: 1.6;
+    .curriculum-platform-note {
+      margin: 0 0 1.5rem;
       max-width: 72ch;
-    }
-
-    .powered-card .powered-actions {
-      display: flex;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-    }
-
-    .powered-card .powered-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.05rem;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
-      color: #fff;
-      box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-    }
-
-    .powered-card .powered-btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.05);
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--ink-muted);
+      line-height: 1.55;
     }
 
     .curriculum-grid {
@@ -2154,6 +2048,7 @@
         <ul id="primary-nav-list" class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="#instructor">Meet Your Instructor</a></li>
+          <li><a href="#what-you-get">What You Get</a></li>
           <li><a href="#programs">Programs</a></li>
           <li><a href="#curriculum">Curriculum</a></li>
           <li><a href="#results">Results</a></li>
@@ -2182,65 +2077,35 @@
           </div>
           <h1>Boost your SAT or ACT score in just 3 sessions</h1>
           <p class="hero-lead">
-            Affordable, group Zoom sessions with modern tools, competition and digestible instruction to streamline test improvement.
+            Affordable, group Zoom sessions with modern tools, proven strategies and digestible instruction to streamline test improvement.
           </p>
           <div class="hero-ctas" id="survey">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSffAE0_-9DkzWpJpTo1517CUEf1iJOSAJC4jynp8uZwx0DNqw/viewform?usp=sharing&amp;ouid=100525222836573959882" target="_blank" rel="noopener noreferrer">SAT or ACT? Take the quiz</a>
             <a class="btn btn-ghost" href="#programs">View Programs</a>
           </div>
         </div>
-        <div class="leaderboard-visual" role="img" aria-label="Illustration: session leaderboard with XP gains for Math, Reading, and Science proficiencies">
-          <div class="lb-chrome" aria-hidden="true">
-            <span class="lb-dot"></span>
-            <span class="lb-dot"></span>
-            <span class="lb-dot"></span>
-            <span class="lb-title">Session leaderboard</span>
-          </div>
-          <div class="lb-content">
-            <div class="lb-banner">⚡ XP streak · proficiencies rising</div>
-            <div class="lb-row">
-              <span class="lb-icon math" aria-hidden="true">∑</span>
-              <div>
-                <span class="lb-name">Math</span>
-                <span class="lb-sublabel">Proficiency</span>
-                <div class="lb-bar" aria-hidden="true"><div class="lb-fill math"></div></div>
-              </div>
-              <div class="lb-points">
-                <span class="lb-num">2,840</span>
-                <small>XP</small>
-                <span class="lb-delta">+180</span>
-              </div>
+        <div class="hero-stats-wrap">
+          <p class="hero-free-pill">✓ First class free — no commitment</p>
+          <div class="hero-stat-grid" role="group" aria-label="Typical outcomes and format">
+            <div class="hero-stat-card">
+              <p class="hero-stat-num">
+                <span class="hero-stat-prefix">100–</span><span class="hero-stat-value" data-hero-count data-target="250">0</span><span class="hero-stat-suffix"> pts</span>
+              </p>
+              <p class="hero-stat-label">avg SAT improvement</p>
             </div>
-            <div class="lb-row">
-              <span class="lb-icon reading" aria-hidden="true">R</span>
-              <div>
-                <span class="lb-name">Reading</span>
-                <span class="lb-sublabel">Proficiency</span>
-                <div class="lb-bar" aria-hidden="true"><div class="lb-fill reading"></div></div>
-              </div>
-              <div class="lb-points">
-                <span class="lb-num">2,120</span>
-                <small>XP</small>
-                <span class="lb-delta">+150</span>
-              </div>
+            <div class="hero-stat-card">
+              <p class="hero-stat-num">
+                <span class="hero-stat-prefix">2–</span><span class="hero-stat-value" data-hero-count data-target="4">0</span><span class="hero-stat-suffix"> pts</span>
+              </p>
+              <p class="hero-stat-label">avg ACT improvement</p>
             </div>
-            <div class="lb-row">
-              <span class="lb-icon science" aria-hidden="true">⚗</span>
-              <div>
-                <span class="lb-name">Science reasoning</span>
-                <span class="lb-sublabel">Proficiency</span>
-                <div class="lb-bar" aria-hidden="true"><div class="lb-fill science"></div></div>
-              </div>
-              <div class="lb-points">
-                <span class="lb-num">1,905</span>
-                <small>XP</small>
-                <span class="lb-delta">+120</span>
-              </div>
+            <div class="hero-stat-card">
+              <p class="hero-stat-num">
+                <span class="hero-stat-value" data-hero-count data-target="6">0</span><span class="hero-stat-suffix"> hrs</span>
+              </p>
+              <p class="hero-stat-label">3 focused sessions</p>
             </div>
           </div>
-          <span class="lb-float one" aria-hidden="true">+120 XP</span>
-          <span class="lb-float two" aria-hidden="true">+150 XP</span>
-          <span class="lb-float three" aria-hidden="true">LEVEL ↑</span>
         </div>
       </div>
     </section>
@@ -2263,7 +2128,7 @@
                 Today's students are used to constant stimulation and fast feedback, yet most instruction hasn't adapted. As a result, focus drops and motivation fades quickly. I've built my teaching style around this reality.
               </p>
               <p>
-                Through gamified lessons, team-based challenges, and bite-sized SAT/ACT strategies, I create an environment where students stay engaged, compete, and improve quickly. The result is simple - more focus, more confidence, and better scores.
+                Through fast-paced instruction, live practice rounds, and targeted strategies, I keep students locked in from start to finish. The result is simple - more focus, more confidence, and better scores.
               </p>
             </div>
           </div>
@@ -2324,6 +2189,67 @@
               <span class="cred-sub">Real classroom experience</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-you-get">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What You Get</h2>
+        </div>
+        <div class="wyg-grid">
+          <article class="wyg-card">
+            <h3>Your Investment</h3>
+            <p>
+              3 sessions · 2 hours each · 6 hours total. First session is completely free with no commitment required. If you want to continue after session 1, the remaining two sessions are $160 total ($40/hr). Payment via Venmo or Zelle. No contracts, no pressure.
+            </p>
+          </article>
+          <article class="wyg-card">
+            <h3>What You'll Learn</h3>
+            <ul>
+              <li>Session 1: SAT/ACT structure, test strategy, and full Math — Algebra &amp; Advanced Math</li>
+              <li>Session 2: Data Analysis, Geometry, and Trigonometry</li>
+              <li>Session 3: Reading, Writing, and (for ACT) Science</li>
+            </ul>
+          </article>
+          <article class="wyg-card">
+            <h3>Why McPrep</h3>
+            <p>
+              McPrep is built for students who want real score improvement without spending months or thousands of dollars. Both private tutors and large prep companies tend to be expensive and drawn out. McPrep delivers results in just 6 focused hours at a fraction of the cost.
+            </p>
+            <div class="wyg-compare-wrap">
+              <table class="wyg-compare">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Private Tutor or Prep Company</th>
+                    <th scope="col" class="wyg-compare__mcprep">McPrep</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Duration</th>
+                    <td>Months</td>
+                    <td class="wyg-compare__mcprep">6 hours</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cost</th>
+                    <td>$500–$2,000+</td>
+                    <td class="wyg-compare__mcprep">$160</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Format</th>
+                    <td>Repetitive, passive</td>
+                    <td class="wyg-compare__mcprep">Live, competitive, engaging</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="wyg-trust">
+              Designed by a 99th percentile SAT &amp; ACT scorer with 10+ years of tutoring experience and real classroom teaching. This is a curriculum that's been tested, refined, and built around how students actually learn today.
+            </p>
+          </article>
         </div>
       </div>
     </section>
@@ -2450,18 +2376,9 @@
           <p>Three focused sessions, built around your test.</p>
         </div>
 
-        <div class="powered-card">
-          <div class="powered-copy">
-            <span class="powered-kicker">Powered by</span>
-            <h3><a href="https://www.oneprep.xyz" target="_blank" rel="noopener noreferrer">Powered by OnePrepXYZ</a></h3>
-            <p>
-              We use OnePrepXYZ — a modern, AI-powered test prep platform built for how students actually learn today. Features include a full SAT &amp; ACT question bank broken down by topic, Question Rush for in-class competition and topic mastery, an AI chatbot that delivers instant feedback and bite-sized strategies, and a points and streak system that keeps students motivated and engaged.
-            </p>
-          </div>
-          <div class="powered-actions">
-            <a class="powered-btn" href="https://www.oneprep.xyz" target="_blank" rel="noopener noreferrer">Visit OnePrepXYZ ↗</a>
-          </div>
-        </div>
+        <p class="curriculum-platform-note">
+          Sessions are run on a live practice platform with built-in competition and instant feedback tools.
+        </p>
 
         <div class="curriculum-grid curriculum-timeline">
           <article class="curr-step curr-step--1" style="--step-accent: var(--accent);" data-curr-step>
@@ -2745,6 +2662,38 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    (function () {
+      var nodes = document.querySelectorAll("[data-hero-count]");
+      if (!nodes.length) return;
+      var duration = 1500;
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      nodes.forEach(function (el) {
+        var raw = el.getAttribute("data-target");
+        var target = raw ? parseInt(raw, 10) : NaN;
+        if (isNaN(target)) return;
+        if (reducedMotion) {
+          el.textContent = String(target);
+          return;
+        }
+        var start = null;
+        function tick(ts) {
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var v = Math.round(easeOutCubic(p) * target);
+          el.textContent = String(v);
+          if (p < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = String(target);
+          }
+        }
+        requestAnimationFrame(tick);
+      });
+    })();
 
     (function () {
       var header = document.querySelector("header");
